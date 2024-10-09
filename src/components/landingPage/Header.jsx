@@ -5,6 +5,8 @@ import { AuthContext } from '../../context/AuthContext';
 import { getAuth } from "firebase/auth"
 import appFirebase from '../../Services/firebaseConfig'
 import { useNavigate } from 'react-router-dom'
+import userImagen from '../../assets/userImagen.png'
+
 
 
 const Header = () => {
@@ -31,11 +33,11 @@ const Header = () => {
 
 
 
-  // const logOut = () => {
-  //   auth.signOut().then(() => {
-  //     setUsuario(null)
-  //   })
-  // }
+  const logOut = () => {
+    auth.signOut().then(() => {
+      setUsuario(null)
+    })
+  }
 
 
   return (
@@ -63,14 +65,13 @@ const Header = () => {
                             </svg>
                             </button>
                         </div> */}
-                        <div>
+                        <div >
                           <button className="w-11 h-11 rounded-full text-2xl mx-auto mb-4 bg-gray-500 " onClick={handleGoTo}>
-                            {/* <img
-                              src="" // URL de la imagen de perfil
-                              alt="Perfil"
-                              className="w-10 h-10 rounded-full mx-auto mb-4  bg-blue-800"
-                            /> */}
-                            M
+                          <img
+                            src={userImagen} // URL de la imagen de perfil
+                            alt="Perfil"
+                            className="w-11 h-11 rounded-full mx-auto mb-4 border-2 border-gray-300"
+                          />
                           </button>
                         </div>
                     </>
@@ -105,9 +106,15 @@ const Header = () => {
             <ul className="flex flex-col items-center space-y-4 p-4">
               <li><a href="#hero" className="text-gray-600 hover:text-gray-900">Inicio</a></li>
               <li><a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonios</a></li>
-              <li><a href="#Faqs" className="text-gray-600 hover:text-gray-900">FAQs</a></li>
+              <li><a href="#FaqSection" className="text-gray-600 hover:text-gray-900">FAQs</a></li>
+              {usuario ? (
+
+              <li><button onClick={logOut} className="text-gray-600 hover:text-gray-900">Log Out</button></li>
+              ) : (
               <li><Link to="/Login" className="text-gray-600 hover:text-gray-900">Log In</Link></li>
-            </ul>
+
+              )}
+              </ul>
           </div>
         )}
       </nav>

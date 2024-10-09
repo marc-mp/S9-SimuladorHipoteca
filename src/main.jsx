@@ -15,6 +15,7 @@ import Register from './pages/Register.jsx'
 import InteractiveForm from './components/InteractiveForm.jsx';
 import Report from './components/Report.jsx';
 import UserDashboard from './components/UserDashboard.jsx';
+import InfoHipoteca from './pages/InfoHipoteca.jsx'
 // import PrivateRoute from './components/PrivateRoute';
 
 
@@ -53,6 +54,11 @@ export const router = createBrowserRouter ([
     path: "/UserDashboard",
     element: <UserDashboard />
   },
+  {
+    path: "/InfoHipoteca",
+    element: <InfoHipoteca />
+  },
+
 
 
 ])

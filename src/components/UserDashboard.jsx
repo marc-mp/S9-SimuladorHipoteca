@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext.jsx';
 // import { FaSignOutAlt } from 'react-icons/fa'; // Icono para el botón de cerrar sesión
 import { useNavigate } from 'react-router-dom'
+import userImagen from '../assets/userImagen.png'
 
 
 const UserDashboard = () => {
@@ -28,11 +29,13 @@ const UserDashboard = () => {
     return (
         <div className="max-w-xs mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6 text-center">
             {/* Foto de perfil */}
+            <div>
             <img
-                src="https://via.placeholder.com/100" // URL de la imagen de perfil
+                src={userImagen} // URL de la imagen de perfil
                 alt="Perfil"
                 className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-gray-300"
             />
+            </div>
             {/* Saludo y email */}
             <h2 className="text-xl font-semibold mb-2">Hola,</h2>
             <p className="text-gray-600 mb-4">{usuario.email}</p>

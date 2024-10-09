@@ -6,17 +6,13 @@ import { useContext } from 'react';
 // import { DataContext } from '../context/DataContext.jsx';
 import { AuthContext } from '../context/AuthContext.jsx';
 
-
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [resetEmailSent, setResetEmailSent] = useState(false);
-  // const { setUsuario } = useContext(DataContext);
   const { setUsuario } = useContext(AuthContext);
-
 
   const handleLogIn = () => {
     signInWithEmailAndPassword(auth, email, password)

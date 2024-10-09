@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const InteractiveForm = () => {
   const { step, setStep, formData, setFormData } = useContext(DataContext);
   const navigate = useNavigate();
-  const { register, handleSubmit, setValue, watch } = useForm();
+  const { register, handleSubmit} = useForm();
 
   const handleNextStep = () => setStep((prevStep) => prevStep + 1);
   const handlePrevStep = () => setStep((prevStep) => prevStep - 1);
@@ -67,7 +67,8 @@ const InteractiveForm = () => {
               <input
               type="range"
               min="0"
-              max="2000000"
+              max="1000000"
+              step="5000"
               value={formData.precioVivienda}
               onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
               className="w-full mb-4"
@@ -90,7 +91,8 @@ const InteractiveForm = () => {
               <input
               type="range"
               min="0"
-              max="2000000"
+              max="1000000"
+              step="5000"
               value={formData.valorTasacion}
               onChange={(e) => handleRangeChange('valorTasacion', e.target.value)}
               className="w-full mb-4"
@@ -125,10 +127,6 @@ const InteractiveForm = () => {
               onChange={(e) => handleRangeChange('duracion', e.target.value)}
               className="w-full mb-4"
             />
-            <div className="flex justify-between">
-              <span>0</span>
-              <span>35</span>
-            </div>
 
             <label className="block text-lg font-bold mb-2">Tipo de interés:</label>
             <input
@@ -140,6 +138,15 @@ const InteractiveForm = () => {
               onChange={handleInputChange}
               min={0}
               max={20}
+            />
+            <input
+              type="range"
+              min="0"
+              max="15"
+              step="0.1"
+              value={formData.interes}
+              onChange={(e) => handleRangeChange('interes', e.target.value)}
+              className="w-full mb-4"
             />
 
             <div className='flex justify-between'>
@@ -230,7 +237,7 @@ const InteractiveForm = () => {
                 }}
                 min={18}
                 max={79}
-              />
+              />             
             ))}
 
             <div className='flex justify-between'>
@@ -281,6 +288,16 @@ const InteractiveForm = () => {
               onChange={handleInputChange}
               min={0}
             />
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              step ="50"
+              value={formData.ingresosNetos}
+              onChange={(e) => handleRangeChange('ingresosNetos', e.target.value)}
+              className="w-full mb-4"
+            />
+
 
             <div className='flex justify-between'>
               <button type="button" className="mt-6 bg-blue-500 text-white px-4 py-2 rounded" onClick={handlePrevStep}>Volver</button>
@@ -303,6 +320,21 @@ const InteractiveForm = () => {
               onChange={handleInputChange}
               min={0}
             />
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              step ="25"
+              value={formData.cuotasCreditos}
+              onChange={(e) => handleRangeChange('cuotasCreditos', e.target.value)}
+              className="w-full mb-4"
+            />
+            {formData.cuotasCreditos < "1" && (
+              <span>No</span>
+
+            )}
+
+
 
             <div className='flex justify-between'>
               <button type="button" className="mt-6 bg-blue-500 text-white px-4 py-2 rounded" onClick={handlePrevStep}>Volver</button>

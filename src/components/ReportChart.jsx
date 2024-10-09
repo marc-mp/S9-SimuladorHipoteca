@@ -40,7 +40,7 @@ const ReportChart = () => {
   };
 
   return (
-    <div className="container max-w-lg mx-auto p-6  rounded-xl shadow-md space-y-4">
+    <div className="container max-w-lg mx-auto p-6  rounded-xl space-y-4">
       <h2 className="text-xl text-center font-bold mb-4">Resumen de Costes</h2>
 
       <div className="relative" style={{ height: '300px' }}>
