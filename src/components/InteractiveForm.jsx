@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import ahorros2 from '../assets/ahorros2.mp4'
 
 const InteractiveForm = () => {
   const { step, setStep, formData, setFormData } = useContext(DataContext);

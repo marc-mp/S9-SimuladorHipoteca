@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom'
 import userImagen from '../../assets/userImagen.png'
 
 
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { usuario, setUsuario } = useContext(AuthContext);
@@ -52,19 +51,6 @@ const Header = () => {
           <div className='flex justify-end items-center'>
                 {usuario ? (
                     <>
-                        {/* <div className='me-8'>
-                            <span className="text-gray-600 hover:text-gray-900 inline-flex">
-                               {usuario.email}
-                            </span>
-                        </div>
-                        <div className='me-8'>
-                            <button className="text-gray-600 hover:text-gray-900" onClick={logOut}>
-                            LOG OUT                            
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
-                            </svg>
-                            </button>
-                        </div> */}
                         <div >
                           <button className="w-11 h-11 rounded-full text-2xl mx-auto mb-4 bg-gray-500 " onClick={handleGoTo}>
                           <img
