@@ -8,7 +8,6 @@ const Home = () => (
     <nav>
       <Header/>
     </nav>
-
     <video
     className="w-full h-96 object-cover"
     src={llavesLogoCasa}  
@@ -19,10 +18,10 @@ const Home = () => (
     />
     <section id="hero">
       <div className="relative container mx-auto text-center ">
-        <h1 className="absolute bottom-1 text-6xl text-black font-bold">Simula tu hipoteca</h1>
+        <h1 className="absolute bottom-0 text-6xl text-black font-bold">Simula tu hipoteca</h1>
       </div>
       <div>
-      <p className="text-lg mt-20 m-5 text-black ">Rápido, fácil y sin compromiso</p>
+      <p className="text-lg m-5 text-yellow-400 font-semibold ">Rápido, fácil y sin compromiso</p>
       </div>
       <div>
         <h2 className="text-2xl md:text-3xl font-bold mb-6">¿Cómo funciona la calculadora de hipotecas?</h2>
@@ -58,14 +57,14 @@ const Home = () => (
     <div className='mx-auto mb-10 space-y-4 max-w-lg'>
       <div>
             <Link to="/InteractiveForm">
-              <button className="bg-black border-2 border-black text-white font-semibold text-xl py-4 mx-4 w-96">
+              <button className="bg-black border-4 border-black text-white font-semibold text-xl py-4 w-80">
                 Calcular hipoteca
               </button>
             </Link>
         </div>
         <div>
             <Link to="/InfoHipoteca">
-              <button className=" border-yellow-500 text-black font-bold text-xl border-2 py-4 mx-4 w-96">
+              <button className=" border-yellow-400 text-black font-bold text-xl border-4 py-4 w-80">
                 Info y FAQ's
               </button>
             </Link>

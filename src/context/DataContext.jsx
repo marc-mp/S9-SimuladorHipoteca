@@ -26,6 +26,22 @@ const DataContextProvider = ({ children }) => {
   // const [usuario, setUsuario] = useState(null);
   const [step, setStep] = useState(0);
   
+  // Lista de videos
+  const videos = [
+    '/src/assets/videoStep0.mp4',
+    '/src/assets/videoStep1.mp4',
+    '/src/assets/videoStep2.mp4',
+    '/src/assets/videoStep3.mp4',
+    '/src/assets/videoStep4.mp4',
+    '/src/assets/videoStep5.mp4',
+    '/src/assets/videoStep6.mp4',
+    '/src/assets/videoStep7.mp4',
+    '/src/assets/videoStep8.mp4',
+    '/src/assets/videoStep9.mp4',
+    '/src/assets/videoStep10.mp4',
+
+    // Agrega más videos según el número de steps
+  ];
   // Validación: Asegúrate de que todos los campos requeridos estén presentes y son números válidos
   const precioVivienda = parseFloat(formData?.precioVivienda) || 0;
   const ahorros = parseFloat(formData?.ahorros) || 0;
@@ -107,8 +123,7 @@ const taxPercentaje = () => {
                                   ahorros,
                                   interes,
                                   duracion,
-                                  // usuario, 
-                                  // setUsuario
+                                  videos,
 
                                   }}>
       {children}
