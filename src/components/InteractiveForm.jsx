@@ -2,7 +2,9 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import entrarPuerta from '../assets/entrarPuerta.mp4'
+
+
+
 
 const InteractiveForm = () => {
   const { step, setStep, formData, setFormData, videos } = useContext(DataContext);
@@ -18,11 +20,26 @@ const InteractiveForm = () => {
     console.log(formData);
   };
 
+  const handleRangeChangeStep4 = (name, value) => {
+    const options = ["", "habitual obra nueva", "habitual Segunda mano", "segunda residencia"];
+    setFormData({ ...formData, [name]: options[value] });
+    console.log(formData);
+  };
+
+  const handleRangeChangeStep8 = (name, value) => {
+    const options = ["", "NO", "SI"];
+    setFormData({ ...formData, [name]: options[value] });
+    console.log(formData);
+  };
+
+  
+
   const handleRangeChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
 
+  
   const onSubmit = (name, value) => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
@@ -53,15 +70,13 @@ const InteractiveForm = () => {
         return formData.ingresosNetos >= 0
       case 10:
         return formData.cuotasCreditos >= 0
-                        
-  
       default:
         return false;
     }
   };
 
   return (
-    <div className="relative max-h-screen">
+    <div className="relative">
       {/* <h1 className=' text-2xl text-blue-500 font-bold'></h1> */}
       <video
         className=""
@@ -69,36 +84,34 @@ const InteractiveForm = () => {
         autoPlay
         loop
         muted
-        // playsInline
+        playsInline
       />
-      <div className="absolute bottom-9">
-        <form onSubmit={handleSubmit(onSubmit)} className='w-screen h-44 bg-red-400'>
+      <div className="absolute bottom-24">
+        <form onSubmit={handleSubmit(onSubmit)} className='w-screen h-44'>
           {step === 0 && (
             <div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el precio de la vivienda?:</label>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
-                placeholder="Introduce el precio"
-                {...register('precioVivienda', { required: true })}
-                value={formData.precioVivienda}
-                onChange={handleInputChange}
-                min={10000}
-                max={1000000}
-              />
+              <div className='text-center'>
                 <input
-                type="range"
-                min="0"
-                max="1000000"
-                step="5000"
-                value={formData.precioVivienda}
-                onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
-                className="w-full mx-4 mb-4"
-              />
-              {/* <div className="flex justify-between">
-                <span>0</span>
-                <span>2000000</span>
-              </div> */}
+                  type="number"
+                  className=" w-full p-2 mb-4 text-center text-5xl text-white font-bold border-transparent placeholder-transparent bg-transparent"
+                  placeholder="Introduce el precio"
+                  {...register('precioVivienda', { required: true })}
+                  value={formData.precioVivienda}
+                  onChange={handleInputChange}
+                  min={10000}
+                  max={1000000}
+                />
+                  <input
+                  type="range"
+                  min="0"
+                  max="1000000"
+                  step="5000"
+                  value={formData.precioVivienda}
+                  onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
+                  className="w-96  mb-4 "
+                />
+              </div>
               <div className='flex justify-end'>
                 {/* <button type="button" className="mt-6 bg-blue-500 text-white px-4 py-2 rounded" onClick={handlePrevStep}>Volver</button> */}
                 {isValidStep() && (
@@ -110,25 +123,27 @@ const InteractiveForm = () => {
           {step === 1 && (
             <div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el valor de tasacion?:</label>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
-                placeholder="Introduce el valor"
-                {...register('valorTasacion', { required: true })}
-                value={formData.valorTasacion}
-                onChange={handleInputChange}
-                min={10000}
-                max={1000000}
-              />
+              <div className='text-center'>
                 <input
-                type="range"
-                min="0"
-                max="1000000"
-                step="5000"
-                value={formData.valorTasacion}
-                onChange={(e) => handleRangeChange('valorTasacion', e.target.value)}
-                className="w-full mb-4"
-              />
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  placeholder="Introduce el valor"
+                  {...register('valorTasacion', { required: true })}
+                  value={formData.valorTasacion}
+                  onChange={handleInputChange}
+                  min={10000}
+                  max={1000000}
+                />
+                  <input
+                  type="range"
+                  min="0"
+                  max="1000000"
+                  step="5000"
+                  value={formData.valorTasacion}
+                  onChange={(e) => handleRangeChange('valorTasacion', e.target.value)}
+                  className="w-96 mb-4"
+                />
+              </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -142,34 +157,36 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 2 && (
-            <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Años de duración de la hipoteca?</label>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
-                placeholder="Introduce los años"
-                {...register('duracion', { required: true })}
-                value={formData.duracion}
-                onChange={handleInputChange}
-                min={1}
-                max={35}
-              />
-              <input
-                type="range"
-                min="0"
-                max="35"
-                value={formData.duracion}
-                onChange={(e) => handleRangeChange('duracion', e.target.value)}
-                className="w-full mb-4"
-              />
+            <div className='absolute bottom-0'>
+              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
+              <div className='text-center'>
+                <input
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  placeholder="Introduce los años"
+                  {...register('duracion', { required: true })}
+                  value={formData.duracion}
+                  onChange={handleInputChange}
+                  min={1}
+                  max={35}
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="35"
+                  value={formData.duracion}
+                  onChange={(e) => handleRangeChange('duracion', e.target.value)}
+                  className="w-96 mb-4"
+                />
+              </div>
               <div className='flex justify-between'>
-                <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
+                <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="bg-white text-black font-semibold text-xl my-2 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
@@ -177,9 +194,10 @@ const InteractiveForm = () => {
           {step === 3 && (
             <div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
+              <div className='text-center'>
               <input
                 type="number"
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
+                className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
                 placeholder="Introduce el tipo de interés"
                 {...register('interes', { required: true })}
                 value={formData.interes}
@@ -194,8 +212,9 @@ const InteractiveForm = () => {
                 step="0.1"
                 value={formData.interes}
                 onChange={(e) => handleRangeChange('interes', e.target.value)}
-                className="w-full mb-4"
+                className="w-96 mb-4"
               />
+              </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -210,52 +229,112 @@ const InteractiveForm = () => {
           )}
 
           {step === 4 && (
-            <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Para que tipo de vivienda necessitas la hipoteca?</label>
-              <select
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
-                {...register('tipoCompra', { required: true })}
-                value={formData.tipoCompra}
-                onChange={handleInputChange}
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="habitual nueva construcción">Vivienda habitual de nueva construcción</option>
-                <option value="habitual Segunda mano">Vivienda habitual de Segunda mano</option>
-                <option value="segunda residencia">Segunda residencia</option>
-              </select>
-              <div className='flex justify-between'>
-                <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-                {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
-                )}
+            // <div>
+            //   <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Para que tipo de vivienda necessitas la hipoteca?</label>
+            //   <div className='text-center'>
+            //     <select
+            //       className="w-full p-2 mb-4 text-center text-5xl font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+            //       {...register('tipoCompra', { required: true })}
+            //       value={formData.tipoCompra}
+            //       onChange={handleInputChange}
+            //     >
+            //       <option value="">Selecciona una opción</option>
+            //       <option value="habitual nueva construcción">Vivienda habitual de nueva construcción</option>
+            //       <option value="habitual Segunda mano">Vivienda habitual de Segunda mano</option>
+            //       <option value="segunda residencia">Segunda residencia</option>
+            //     </select>
+            //   </div>
+            //   <div className='flex justify-between'>
+            //     <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
+            //       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            //           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            //       </svg>
+            //     </button>
+            //     {isValidStep() && (
+            //       <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+            //     )}
+            //   </div>
+            // </div>
+              <div>
+                <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Para qué tipo de vivienda necesitas la hipoteca?</label>
+                <div className="text-center">
+                  <div className='p-2 mb-8 '>
+                    <label className="text-3xl font-bold text-white">
+                        {formData.tipoCompra === ""
+                          ? "¿?"
+                          : formData.tipoCompra}
+                    </label>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="3"
+                    step="1"
+                    value={
+                      formData.tipoCompra === "habitual obra nueva"
+                        ? 1
+                        : formData.tipoCompra === "habitual Segunda mano"
+                        ? 2
+                        : formData.tipoCompra === "segunda residencia"
+                        ? 3
+                        : 0
+                    }
+                    // onChange={(e) => handleRangeChangeStep4(e)}
+                    className="w-full mb-4"
+
+                    onChange={(e) => handleRangeChangeStep4('tipoCompra', e.target.value)}
+  
+                  />
+                  {/* Mostrar el valor seleccionado */}
+                </div>
+                <div className="flex justify-between">
+                  <button
+                    type="button"
+                    className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded"
+                    onClick={handlePrevStep}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+                    </svg>
+                  </button>
+                  {isValidStep() && (
+                    <button
+                      type="button"
+                      className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4"
+                      onClick={handleNextStep}
+                    >
+                      CONTINUAR
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            
+            
+
           )}
           {step === 5 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">¿Cuántos ahorros vas a aportar?</label>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 text-center text-3xl font-semibold border rounded placeholder-transparent focus:placeholder-transparent"
-                placeholder="Introduce la cantidad"
-                {...register('ahorros', { required: true })}
-                value={formData.ahorros}
-                onChange={handleInputChange}
-                min={0}
-                max={formData.precioVivienda}
-              />
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos ahorros vas a aportar?</label>
+              <div>
                 <input
-                type="range"
-                min="0"
-                max={formData.precioVivienda}
-                value={formData.ahorros}
-                onChange={(e) => handleRangeChange('ahorros', e.target.value)}
-                className="w-full mb-4"
-              />
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  placeholder="Introduce la cantidad"
+                  {...register('ahorros', { required: true })}
+                  value={formData.ahorros}
+                  onChange={handleInputChange}
+                  min={0}
+                  max={formData.precioVivienda}
+                />
+                  <input
+                  type="range"
+                  min="0"
+                  max={formData.precioVivienda}
+                  value={formData.ahorros}
+                  onChange={(e) => handleRangeChange('ahorros', e.target.value)}
+                  className="w-96 mb-4"
+                />
+              </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -271,21 +350,26 @@ const InteractiveForm = () => {
 
           {step === 6 && (
             <div>
-              <label className="block text-lg font-bold mb-2">¿Cuántos titulares tendrá la hipoteca?</label>
-              <div className="mb-4">
-                {[1, 2].map((num) => (
-                  <label key={num} className="inline-flex items-center mr-4">
-                    <input
-                      type="radio"
-                      className="form-radio"
-                      {...register('solicitantes', { required: true })}
-                      value={num}
-                      checked={formData.solicitantes === num.toString()}
-                      onChange={handleInputChange}
-                    />
-                    <span className="ml-2">{num}</span>
-                  </label>
-                ))}
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos titulares tendrá la hipoteca?</label>
+              <div className='text-center'>
+                <input
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-white text-5xl font-bold placeholder-transparent bg-transparent"
+                  placeholder="Introduce la cantidad"
+                  {...register('ahorros', { required: true })}
+                  value={formData.solicitantes}
+                  onChange={handleInputChange}
+                  min={0}
+                  max="2"
+                />
+                  <input
+                  type="range"
+                  min="0"
+                  max="2"
+                  value={formData.solicitantes}
+                  onChange={(e) => handleRangeChange('solicitantes', e.target.value)}
+                  className="w-96 mb-4"
+                />
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
@@ -300,64 +384,122 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 7 && (
-            <div>
-              <label className="block text-lg font-bold mb-2">Edades de los solicitantes:</label>
+            <div className={formData.solicitantes == 2 ? 'absolute -bottom-11 mt-10' : ''}>
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Indica las edades de los solicitantes:</label>
+              {/* <div className='text-center'>
+                {Array.from({ length: formData.solicitantes }).map((_, index) => (
+                  <input
+                    key={index}
+                    type="number"
+                    className="w-full p-2 mb-4 text-center text-5xl  text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                    placeholder={`Introduce la edad del solicitante ${index + 1}`}
+                    {...register(`edadesSolicitantes.${index}`, { required: true })}
+                    value={formData.edadesSolicitantes}
+                    onChange={(e) => {
+                      // Actualizar el valor del array `edadesSolicitantes` en `formData`
+                      const newEdades = [...formData.edadesSolicitantes];
+                      newEdades[index] = e.target.value; // Asignar el nuevo valor
+                      setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
+                    }}
+                    min={18}
+                    max={79}
+                  />         
+                ))}
+              </div> */}
+               <div className='text-center'>
               {Array.from({ length: formData.solicitantes }).map((_, index) => (
-                <input
-                  key={index}
-                  type="number"
-                  className="w-full p-2 mb-4 border rounded"
-                  placeholder={`Introduce la edad del solicitante ${index + 1}`}
-                  {...register(`edadesSolicitantes.${index}`, { required: true })}
-                  onChange={(e) => {
-                    // Actualizar el valor del array `edadesSolicitantes` en `formData`
-                    const newEdades = [...formData.edadesSolicitantes];
-                    newEdades[index] = e.target.value; // Asignar el nuevo valor
-                    setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
-                  }}
-                  min={18}
-                  max={79}
-                />         
+                <div key={index} className="mb-4">
+                  <input
+                    type="number"
+                    className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                    placeholder={`Introduce la edad del solicitante ${index + 1}`}
+                    {...register(`edadesSolicitantes.${index}`, { required: true })}
+                    value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
+                    onChange={(e) => {
+                      const newEdades = [...formData.edadesSolicitantes];
+                      newEdades[index] = e.target.value; // Asignar el nuevo valor
+                      setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
+                    }}
+                    min={18}
+                    max={79}
+                  />
+                  <input
+                    type="range"
+                    min="18"
+                    max="79"
+                    step="1"
+                    value={formData.edadesSolicitantes[index] || 18} // Usar el valor actual o 18 si no hay
+                    onChange={(e) => {
+                      const newEdades = [...formData.edadesSolicitantes];
+                      newEdades[index] = e.target.value; // Cambiar la edad del solicitante correspondiente
+                      setFormData({ ...formData, edadesSolicitantes: newEdades });
+                    }}
+                    className="w-96 mb-4"
+                  />
+                </div>
               ))}
-              <div className='flex justify-between'>
-                <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
+              </div>
+              <div className='flex justify-between bg-black'>
+                <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-semibold text-xl  my-2 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
 
           {step === 8 && (
-            <div>
-              <label className="block text-lg font-bold mb-2">¿Eres familia numerosa?</label>
-              <div className="mb-4">
-                <label className="inline-flex items-center mr-4">
+            <div className='absolute bottom-0'>
+              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">¿Eres familia numerosa?</label>
+              <div className="text-center text-5xl text-white">
+                {/* <label className="inline-flex items-center mr-4">
                   <input
                     type="radio"
-                    className="form-radio"
+                    className="form-radio w-7 h-7" 
                     {...register('familiaNumerosa', { required: true })}
                     value="sí"
-                    checked={formData.familiaNumerosa === 'sí'}
+                    checked={formData.familiaNumerosa === 'si'}
                     onChange={handleInputChange}
                   />
-                  <span className="ml-2">Sí</span>
+                  <span className="ml-3">Sí</span>
                 </label>
                 <label className="inline-flex items-center mr-4">
                   <input
                     type="radio"
-                    className="form-radio"
+                    className="form-radio w-7 h-7"
                     {...register('familiaNumerosa', { required: true })}
                     value="no"
                     checked={formData.familiaNumerosa === 'no'}
                     onChange={handleInputChange}
                   />
-                  <span className="ml-2">No</span>
-                </label>
+                  <span className="ml-3">No</span>
+                </label> */}
+                <div className='p-2 mb-4 '>
+                    <label className="text-5xl font-bold text-white">
+                        {formData.familiaNumerosa === ""
+                          ? "¿?"
+                          : formData.familiaNumerosa}
+                    </label>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="2"
+                    step="1"
+                    value={
+                      formData.familiaNumerosa === "NO"
+                        ? 1
+                        : formData.familiaNumerosa === "SI"
+                        ? 2
+                        : 0
+                    }
+                    className="w-96 mb-4"
+                    onChange={(e) => handleRangeChangeStep8('familiaNumerosa', e.target.value)}
+                  />
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
@@ -366,32 +508,34 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 9 && (
-            <div>
-              <label className="block text-lg font-bold mb-2">Ingresos netos mensuales:</label>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 border rounded"
-                placeholder="Introduce tus ingresos"
-                {...register('ingresosNetos', { required: true })}
-                value={formData.ingresosNetos}
-                onChange={handleInputChange}
-                min={0}
-              />
-              <input
-                type="range"
-                min="0"
-                max="10000"
-                step ="50"
-                value={formData.ingresosNetos}
-                onChange={(e) => handleRangeChange('ingresosNetos', e.target.value)}
-                className="w-full mb-4"
-              />
+            <div className='absolute bottom-0'>
+              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Indica el total de ingresos netos mensuales:</label>
+              <div className='text-center'>
+                <input
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  placeholder="Introduce tus ingresos"
+                  {...register('ingresosNetos', { required: true })}
+                  value={formData.ingresosNetos}
+                  onChange={handleInputChange}
+                  min={0}
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="10000"
+                  step ="50"
+                  value={formData.ingresosNetos}
+                  onChange={(e) => handleRangeChange('ingresosNetos', e.target.value)}
+                  className="w-96 mb-6"
+                />
+              </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -399,7 +543,7 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
@@ -407,10 +551,11 @@ const InteractiveForm = () => {
 
           {step === 10 && (
             <div>
-              <label className="block text-lg font-bold mb-2">Tienes otros créditos? indica la cuota:</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
+              <div className='text-center'>
               <input
                 type="number"
-                className="w-full p-2 mb-4 border rounded"
+                className="w-full p-2 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
                 placeholder="Introduce tus cuotas mensuales"
                 {...register('cuotasCreditos', { required: true })}
                 value={formData.cuotasCreditos}
@@ -424,8 +569,9 @@ const InteractiveForm = () => {
                 step ="25"
                 value={formData.cuotasCreditos}
                 onChange={(e) => handleRangeChange('cuotasCreditos', e.target.value)}
-                className="w-full mb-4"
+                className="w-96"
               />
+              </div>
               {formData.cuotasCreditos < "1" && (
                 <span>No</span>
               )}
@@ -436,7 +582,7 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                   {isValidStep() && (
-                    <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                    <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={onSubmit}>VER RESULTADO</button>
                 )}
               </div>
             </div>

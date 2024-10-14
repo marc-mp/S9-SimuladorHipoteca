@@ -23,7 +23,7 @@ const Home = () => (
       <div>
       <p className="text-lg m-5 text-yellow-400 font-semibold ">Rápido, fácil y sin compromiso</p>
       </div>
-      <div>
+      <div className=''>
         <h2 className="text-2xl md:text-3xl font-bold mb-6">¿Cómo funciona la calculadora de hipotecas?</h2>
         <div className='flex justify-around'>
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
@@ -65,7 +65,7 @@ const Home = () => (
         <div>
             <Link to="/InfoHipoteca">
               <button className=" border-yellow-400 text-black font-bold text-xl border-4 py-4 w-80">
-                Info y FAQ's
+                Info y FAQs
               </button>
             </Link>
         </div>

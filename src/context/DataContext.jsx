@@ -70,7 +70,7 @@ const DataContextProvider = ({ children }) => {
 
 // Función para calcular el porcentaje de impuestos
 const taxPercentaje = () => {
-  if (formData.familiaNumerosa === "sí" && formData.tipoCompra === "habitual Segunda mano" ) {
+  if (formData.familiaNumerosa === "SI" && formData.tipoCompra === "habitual Segunda mano" ) {
     return 0.05; // 5% si es familia numerosa
   }
 
