@@ -48,10 +48,11 @@ const Login = () => {
   };
 
   return (
-    <div className='mx-4 sm:mx-8 md:mx-12 my-3 lg:mx-36 border-2 border-neutral-300 p-4'>
+    
+    <div className='mx-4 sm:mx-8 md:mx-12 my-3 lg:mx-36 border-2 border-yellow-200 p-4'>
       <div className="flex justify-end">
         <Link to={"/"}>
-          <button className="p-1 text-md text-neutral-400 font-semibold">X</button>
+          <button className="p-1 text-sm text-blue-500 font-semibold ">OK</button>
         </Link>
       </div>
       <div className='flex items-center justify-center mb-6'>
@@ -77,7 +78,7 @@ const Login = () => {
         </svg>
         <input
           type={showPassword ? 'text' : 'password'}  // Cambia el tipo de input según el estado
-          className="grow px-2 py-1 text-base sm:text-lg border-neutral-300"
+          className="grow px-2 py-1 text-base sm:text-lg border-b-2"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -93,7 +94,7 @@ const Login = () => {
           onChange={() => setShowPassword(!showPassword)}  
           className="mr-2"
         />
-        <label htmlFor="showPassword" className="text-sm sm:text-base text-gray-500">Mostrar contraseña</label>
+        <label htmlFor="showPassword" className="text-sm sm:text-base text-gray-800">Mostrar contraseña</label>
       </div>
 
       <button className="border-2 bg-blue-500 text-white font-bold my-2 py-2 px-4 text-sm sm:text-base" onClick={handleLogIn}>
@@ -101,7 +102,7 @@ const Login = () => {
       </button>
 
       <div className="mt-2 text-sm sm:text-base">
-        <p className="text-gray-400">
+        <p className="text-gray-800">
           ¿Olvidaste tu contraseña?
           <button onClick={handlePasswordReset} className="text-blue-500 ml-2">
             Recuperar contraseña
@@ -111,7 +112,7 @@ const Login = () => {
       </div>
 
       <div className="mt-4 text-sm sm:text-base">
-        <p className="text-gray-400">
+        <p className="text-gray-800">
           ¿No tienes una cuenta?
           <Link to="/Register" className="text-blue-500 ml-2">Regístrate aquí</Link>
         </p>

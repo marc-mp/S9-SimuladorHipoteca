@@ -4,8 +4,6 @@ import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
 const InteractiveForm = () => {
   const { step, setStep, formData, setFormData, videos } = useContext(DataContext);
   const navigate = useNavigate();
@@ -146,8 +144,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -181,8 +179,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -217,8 +215,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>  
                 {isValidStep() && (
@@ -229,32 +227,6 @@ const InteractiveForm = () => {
           )}
 
           {step === 4 && (
-            // <div>
-            //   <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Para que tipo de vivienda necessitas la hipoteca?</label>
-            //   <div className='text-center'>
-            //     <select
-            //       className="w-full p-2 mb-4 text-center text-5xl font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
-            //       {...register('tipoCompra', { required: true })}
-            //       value={formData.tipoCompra}
-            //       onChange={handleInputChange}
-            //     >
-            //       <option value="">Selecciona una opción</option>
-            //       <option value="habitual nueva construcción">Vivienda habitual de nueva construcción</option>
-            //       <option value="habitual Segunda mano">Vivienda habitual de Segunda mano</option>
-            //       <option value="segunda residencia">Segunda residencia</option>
-            //     </select>
-            //   </div>
-            //   <div className='flex justify-between'>
-            //     <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-            //       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            //           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            //       </svg>
-            //     </button>
-            //     {isValidStep() && (
-            //       <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
-            //     )}
-            //   </div>
-            // </div>
               <div>
                 <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Para qué tipo de vivienda necesitas la hipoteca?</label>
                 <div className="text-center">
@@ -280,7 +252,7 @@ const InteractiveForm = () => {
                         : 0
                     }
                     // onChange={(e) => handleRangeChangeStep4(e)}
-                    className="w-full mb-4"
+                    className="w-96 mb-4"
 
                     onChange={(e) => handleRangeChangeStep4('tipoCompra', e.target.value)}
   
@@ -293,8 +265,8 @@ const InteractiveForm = () => {
                     className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded"
                     onClick={handlePrevStep}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                     </svg>
                   </button>
                   {isValidStep() && (
@@ -308,14 +280,11 @@ const InteractiveForm = () => {
                   )}
                 </div>
               </div>
-            
-            
-
           )}
           {step === 5 && (
             <div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos ahorros vas a aportar?</label>
-              <div>
+              <div className="text-center">
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
@@ -337,8 +306,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -347,7 +316,6 @@ const InteractiveForm = () => {
               </div>
             </div>
           )}
-
           {step === 6 && (
             <div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos titulares tendrá la hipoteca?</label>
@@ -373,8 +341,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -386,63 +354,43 @@ const InteractiveForm = () => {
           {step === 7 && (
             <div className={formData.solicitantes == 2 ? 'absolute -bottom-11 mt-10' : ''}>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Indica las edades de los solicitantes:</label>
-              {/* <div className='text-center'>
-                {Array.from({ length: formData.solicitantes }).map((_, index) => (
-                  <input
-                    key={index}
-                    type="number"
-                    className="w-full p-2 mb-4 text-center text-5xl  text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
-                    placeholder={`Introduce la edad del solicitante ${index + 1}`}
-                    {...register(`edadesSolicitantes.${index}`, { required: true })}
-                    value={formData.edadesSolicitantes}
-                    onChange={(e) => {
-                      // Actualizar el valor del array `edadesSolicitantes` en `formData`
-                      const newEdades = [...formData.edadesSolicitantes];
-                      newEdades[index] = e.target.value; // Asignar el nuevo valor
-                      setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
-                    }}
-                    min={18}
-                    max={79}
-                  />         
-                ))}
-              </div> */}
                <div className='text-center'>
-              {Array.from({ length: formData.solicitantes }).map((_, index) => (
-                <div key={index} className="mb-4">
-                  <input
-                    type="number"
-                    className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
-                    placeholder={`Introduce la edad del solicitante ${index + 1}`}
-                    {...register(`edadesSolicitantes.${index}`, { required: true })}
-                    value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
-                    onChange={(e) => {
-                      const newEdades = [...formData.edadesSolicitantes];
-                      newEdades[index] = e.target.value; // Asignar el nuevo valor
-                      setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
-                    }}
-                    min={18}
-                    max={79}
-                  />
-                  <input
-                    type="range"
-                    min="18"
-                    max="79"
-                    step="1"
-                    value={formData.edadesSolicitantes[index] || 18} // Usar el valor actual o 18 si no hay
-                    onChange={(e) => {
-                      const newEdades = [...formData.edadesSolicitantes];
-                      newEdades[index] = e.target.value; // Cambiar la edad del solicitante correspondiente
-                      setFormData({ ...formData, edadesSolicitantes: newEdades });
-                    }}
-                    className="w-96 mb-4"
-                  />
-                </div>
-              ))}
+                {Array.from({ length: formData.solicitantes }).map((_, index) => (
+                  <div key={index} className="mb-4">
+                    <input
+                      type="number"
+                      className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                      placeholder={`Introduce la edad del solicitante ${index + 1}`}
+                      {...register(`edadesSolicitantes.${index}`, { required: true })}
+                      value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
+                      onChange={(e) => {
+                        const newEdades = [...formData.edadesSolicitantes];
+                        newEdades[index] = e.target.value; // Asignar el nuevo valor
+                        setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
+                      }}
+                      min={18}
+                      max={79}
+                    />
+                    <input
+                      type="range"
+                      min="18"
+                      max="79"
+                      step="1"
+                      value={formData.edadesSolicitantes[index] || 18} // Usar el valor actual o 18 si no hay
+                      onChange={(e) => {
+                        const newEdades = [...formData.edadesSolicitantes];
+                        newEdades[index] = e.target.value; // Cambiar la edad del solicitante correspondiente
+                        setFormData({ ...formData, edadesSolicitantes: newEdades });
+                      }}
+                      className="w-96 mb-4"
+                    />
+                  </div>
+                ))}
               </div>
               <div className='flex justify-between bg-black'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -451,60 +399,37 @@ const InteractiveForm = () => {
               </div>
             </div>
           )}
-
           {step === 8 && (
             <div className='absolute bottom-0'>
               <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">¿Eres familia numerosa?</label>
-              <div className="text-center text-5xl text-white">
-                {/* <label className="inline-flex items-center mr-4">
-                  <input
-                    type="radio"
-                    className="form-radio w-7 h-7" 
-                    {...register('familiaNumerosa', { required: true })}
-                    value="sí"
-                    checked={formData.familiaNumerosa === 'si'}
-                    onChange={handleInputChange}
-                  />
-                  <span className="ml-3">Sí</span>
-                </label>
-                <label className="inline-flex items-center mr-4">
-                  <input
-                    type="radio"
-                    className="form-radio w-7 h-7"
-                    {...register('familiaNumerosa', { required: true })}
-                    value="no"
-                    checked={formData.familiaNumerosa === 'no'}
-                    onChange={handleInputChange}
-                  />
-                  <span className="ml-3">No</span>
-                </label> */}
-                <div className='p-2 mb-4 '>
-                    <label className="text-5xl font-bold text-white">
-                        {formData.familiaNumerosa === ""
-                          ? "¿?"
-                          : formData.familiaNumerosa}
-                    </label>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="2"
-                    step="1"
-                    value={
-                      formData.familiaNumerosa === "NO"
-                        ? 1
-                        : formData.familiaNumerosa === "SI"
-                        ? 2
-                        : 0
-                    }
-                    className="w-96 mb-4"
-                    onChange={(e) => handleRangeChangeStep8('familiaNumerosa', e.target.value)}
-                  />
+              <div className="text-center w-screen">
+                <div className='p-2 mb-4'>
+                  <label className="text-5xl font-bold text-white">
+                      {formData.familiaNumerosa === ""
+                        ? "¿?"
+                        : formData.familiaNumerosa}
+                  </label>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="2"
+                  step="1"
+                  value={
+                    formData.familiaNumerosa === "NO"
+                      ? 1
+                      : formData.familiaNumerosa === "SI"
+                      ? 2
+                      : 0
+                  }
+                  className="w-96 mb-4"
+                  onChange={(e) => handleRangeChangeStep8('familiaNumerosa', e.target.value)}
+                />
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -538,8 +463,8 @@ const InteractiveForm = () => {
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
@@ -577,8 +502,8 @@ const InteractiveForm = () => {
               )}
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                   {isValidStep() && (
@@ -589,7 +514,6 @@ const InteractiveForm = () => {
           )}
         </form>
       </div>
-
     </div>
   );
 };

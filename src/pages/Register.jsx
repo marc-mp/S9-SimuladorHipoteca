@@ -37,10 +37,10 @@ const Register = () => {
 
    
     return (
-        <div className='mx-4 my-3 sm:mx-8 md:mx-12 lg:mx-36 border-2 border-neutral-300 p-4'>
+        <div className='mx-4 my-3 sm:mx-8 md:mx-12 lg:mx-36 border-2 border-yellow-200 p-4'>
             <div className='flex justify-end'>
                 <Link to={"/"}>
-                    <button className='p-2 text-lg font-semibold'>X</button>
+                    <button className='p-2 text-sm text-blue-500 font-semibold'>OK</button>
                 </Link>
             </div>
             <div className='flex items-center justify-center mb-6'>
@@ -100,7 +100,7 @@ const Register = () => {
                 Registrarse
             </button>
             <div className="mt-4 text-sm sm:text-base">
-                <p className="text-gray-400">
+                <p className="text-gray-800">
                     ¿Tienes una cuenta? 
                     <Link to="/LogIn" className="text-blue-500 ml-2">Entrar</Link>
                 </p>

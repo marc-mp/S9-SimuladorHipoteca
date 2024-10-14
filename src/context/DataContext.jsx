@@ -104,6 +104,12 @@ const taxPercentaje = () => {
     setFormData((prevData) => ({ ...prevData, ...newData }));
   };
 
+  const [reportesGuardados, setReportesGuardados] = useState([]);
+
+  const guardarReporte = (reporte) => {
+      setReportesGuardados((prevReportes) => [...prevReportes, reporte]);
+  };
+
   return (
     <DataContext.Provider value={{ formData, setFormData, 
                                   updateFormData, 
@@ -124,6 +130,8 @@ const taxPercentaje = () => {
                                   interes,
                                   duracion,
                                   videos,
+                                  reportesGuardados, setReportesGuardados,
+                                  guardarReporte
 
                                   }}>
       {children}

@@ -4,7 +4,7 @@ import llavesLogoCasa from '../assets/llavesLogoCasa.mp4'
 
 
 const Home = () => (
-  <div className="justify-center text-center mx-auto">
+  <div className="text-center mx-auto">
     <nav>
       <Header/>
     </nav>

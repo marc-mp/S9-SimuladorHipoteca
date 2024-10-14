@@ -16,6 +16,7 @@ import InteractiveForm from './components/InteractiveForm.jsx';
 import Report from './components/Report.jsx';
 import UserDashboard from './components/UserDashboard.jsx';
 import InfoHipoteca from './pages/InfoHipoteca.jsx'
+import HistorialSimulaciones from './components/HistorialSimulaciones.jsx';
 // import PrivateRoute from './components/PrivateRoute';
 
 
@@ -58,6 +59,11 @@ export const router = createBrowserRouter ([
     path: "/InfoHipoteca",
     element: <InfoHipoteca />
   },
+  {
+    path: "/HistorialSimulaciones",
+    element: <HistorialSimulaciones />
+  },
+
 
 
 
