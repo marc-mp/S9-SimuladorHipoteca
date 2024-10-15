@@ -23,8 +23,6 @@ const DataContextProvider = ({ children }) => {
     cuotasCreditos: 0,
   });
 
-  // const [usuario, setUsuario] = useState(null);
-  const [step, setStep] = useState(0);
   
   // Lista de videos
   const videos = [
@@ -39,9 +37,11 @@ const DataContextProvider = ({ children }) => {
     '/src/assets/videoStep8.mp4',
     '/src/assets/videoStep9.mp4',
     '/src/assets/videoStep10.mp4',
-
-    // Agrega más videos según el número de steps
   ];
+
+  const [step, setStep] = useState(0);
+  const totalSteps = videos.length
+  
   // Validación: Asegúrate de que todos los campos requeridos estén presentes y son números válidos
   const precioVivienda = parseFloat(formData?.precioVivienda) || 0;
   const ahorros = parseFloat(formData?.ahorros) || 0;
@@ -114,6 +114,7 @@ const taxPercentaje = () => {
     <DataContext.Provider value={{ formData, setFormData, 
                                   updateFormData, 
                                   step, setStep, 
+                                  totalSteps,
                                   prestamoHipoteca,
                                   interestRateDecimal,
                                   monthlyInterestRate,
@@ -132,6 +133,7 @@ const taxPercentaje = () => {
                                   videos,
                                   reportesGuardados, setReportesGuardados,
                                   guardarReporte
+
 
                                   }}>
       {children}

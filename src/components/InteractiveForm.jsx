@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import StepForm from './StepForm.jsx';
 
 
 const InteractiveForm = () => {
@@ -31,7 +32,6 @@ const InteractiveForm = () => {
   };
 
   
-
   const handleRangeChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
@@ -78,7 +78,7 @@ const InteractiveForm = () => {
       {/* <h1 className=' text-2xl text-blue-500 font-bold'></h1> */}
       <video
         className=""
-        src={videos[step]} // Accedemos al video correspondiente al step actual
+        src={videos[step]} 
         autoPlay
         loop
         muted
@@ -88,7 +88,10 @@ const InteractiveForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className='w-screen h-44'>
           {step === 0 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el precio de la vivienda?:</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el precio de la vivienda?</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -120,7 +123,10 @@ const InteractiveForm = () => {
           )}
           {step === 1 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el valor de tasacion?:</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el valor de tasacion?:</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -156,7 +162,10 @@ const InteractiveForm = () => {
           )}
           {step === 2 && (
             <div className='absolute bottom-0'>
-              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-56'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -191,7 +200,10 @@ const InteractiveForm = () => {
           )}
           {step === 3 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
               <div className='text-center'>
               <input
                 type="number"
@@ -228,7 +240,10 @@ const InteractiveForm = () => {
 
           {step === 4 && (
               <div>
-                <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Para qué tipo de vivienda necesitas la hipoteca?</label>
+                <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+                </div>
+                <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Para qué tipo de vivienda necesitas la hipoteca?</label>
                 <div className="text-center">
                   <div className='p-2 mb-8 '>
                     <label className="text-3xl font-bold text-white">
@@ -283,7 +298,10 @@ const InteractiveForm = () => {
           )}
           {step === 5 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos ahorros vas a aportar?</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">¿Cuántos ahorros vas a aportar?</label>
               <div className="text-center">
                 <input
                   type="number"
@@ -318,7 +336,10 @@ const InteractiveForm = () => {
           )}
           {step === 6 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">¿Cuántos titulares tendrá la hipoteca?</label>
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold">Cuántos titulares tendrá la hipoteca?</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -353,7 +374,10 @@ const InteractiveForm = () => {
           )}
           {step === 7 && (
             <div className={formData.solicitantes == 2 ? 'absolute -bottom-11 mt-10' : ''}>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Indica las edades de los solicitantes:</label>
+              <div className={formData.solicitantes == 2 ? 'absolute w-24 left-64 bottom-96 mb-56' : 'absolute w-24 left-64 bottom-96 mb-44'}>
+                <StepForm />
+              </div>
+              <label className={formData.solicitantes == 2 ? 'absolute bottom-96 text-3xl text-start mb-16 ms-4 text-white font-bold' : 'absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold' }>Indica las edades de los solicitantes:</label>
                <div className='text-center'>
                 {Array.from({ length: formData.solicitantes }).map((_, index) => (
                   <div key={index} className="mb-4">
@@ -401,6 +425,9 @@ const InteractiveForm = () => {
           )}
           {step === 8 && (
             <div className='absolute bottom-0'>
+              <div className='absolute w-24 left-64 bottom-96 mb-56'>
+                <StepForm />
+              </div>
               <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">¿Eres familia numerosa?</label>
               <div className="text-center w-screen">
                 <div className='p-2 mb-4'>
@@ -440,7 +467,10 @@ const InteractiveForm = () => {
           )}
           {step === 9 && (
             <div className='absolute bottom-0'>
-              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Indica el total de ingresos netos mensuales:</label>
+              <div className='absolute w-28 left-64 bottom-96 mb-56'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96 text-3xl text-start mb-16 ms-4 text-white font-bold">Indica el total de ingresos netos mensuales:</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -476,7 +506,10 @@ const InteractiveForm = () => {
 
           {step === 10 && (
             <div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
+              <div className='absolute w-28 left-64 bottom-96 mb-44'>
+                <StepForm />
+              </div>
+              <label className="absolute bottom-96  p-2 text-3xl text-start mb-5 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
               <div className='text-center'>
               <input
                 type="number"
