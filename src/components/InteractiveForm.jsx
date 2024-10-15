@@ -424,11 +424,11 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 8 && (
-            <div className='absolute bottom-0'>
-              <div className='absolute w-24 left-64 bottom-96 mb-56'>
+            <div >
+              <div className='absolute w-24 left-64 bottom-96 mb-44'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">¿Eres familia numerosa?</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Eres familia numerosa?</label>
               <div className="text-center w-screen">
                 <div className='p-2 mb-4'>
                   <label className="text-5xl font-bold text-white">

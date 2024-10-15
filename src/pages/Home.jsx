@@ -9,7 +9,7 @@ const Home = () => (
       <Header/>
     </nav>
     <video
-    className="w-full h-96 object-cover"
+    className="object-cover"
     src={llavesLogoCasa}  
     autoPlay
     loop
