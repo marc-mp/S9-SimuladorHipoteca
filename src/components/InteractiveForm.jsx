@@ -110,7 +110,7 @@ const InteractiveForm = () => {
                   step="5000"
                   value={formData.precioVivienda}
                   onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
-                  className="w-96  mb-4 "
+                  className="w-96  mb-6"
                 />
               </div>
               <div className='flex justify-end'>
@@ -145,7 +145,7 @@ const InteractiveForm = () => {
                   step="5000"
                   value={formData.valorTasacion}
                   onChange={(e) => handleRangeChange('valorTasacion', e.target.value)}
-                  className="w-96 mb-4"
+                  className="w-96 mb-6"
                 />
               </div>
               <div className='flex justify-between'>
@@ -161,11 +161,11 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 2 && (
-            <div className='absolute bottom-0'>
-              <div className='absolute w-24 left-64 bottom-96 mb-56'>
+            <div className='absolute -bottom-5'>
+              <div className='absolute w-24 left-64 bottom-96 mb-60'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-20 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -183,17 +183,17 @@ const InteractiveForm = () => {
                   max="35"
                   value={formData.duracion}
                   onChange={(e) => handleRangeChange('duracion', e.target.value)}
-                  className="w-96 mb-4"
+                  className="w-96 mb-5"
                 />
               </div>
               <div className='flex justify-between'>
-                <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
+                <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="bg-white text-black font-semibold text-xl my-2 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
@@ -205,25 +205,25 @@ const InteractiveForm = () => {
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
               <div className='text-center'>
-              <input
-                type="number"
-                className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
-                placeholder="Introduce el tipo de interés"
-                {...register('interes', { required: true })}
-                value={formData.interes}
-                onChange={handleInputChange}
-                min={0}
-                max={20}
-              />
-              <input
-                type="range"
-                min="0"
-                max="15"
-                step="0.1"
-                value={formData.interes}
-                onChange={(e) => handleRangeChange('interes', e.target.value)}
-                className="w-96 mb-4"
-              />
+                <input
+                  type="number"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  placeholder="Introduce el tipo de interés"
+                  {...register('interes', { required: true })}
+                  value={formData.interes}
+                  onChange={handleInputChange}
+                  min={0}
+                  max={20}
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="15"
+                  step="0.1"
+                  value={formData.interes}
+                  onChange={(e) => handleRangeChange('interes', e.target.value)}
+                  className="w-96 mb-6"
+                />
               </div>
               <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
@@ -266,13 +266,9 @@ const InteractiveForm = () => {
                         ? 3
                         : 0
                     }
-                    // onChange={(e) => handleRangeChangeStep4(e)}
-                    className="w-96 mb-4"
-
+                    className="w-96 mb-8"
                     onChange={(e) => handleRangeChangeStep4('tipoCompra', e.target.value)}
-  
                   />
-                  {/* Mostrar el valor seleccionado */}
                 </div>
                 <div className="flex justify-between">
                   <button
@@ -301,7 +297,7 @@ const InteractiveForm = () => {
               <div className='absolute w-24 left-64 bottom-96 mb-44'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">¿Cuántos ahorros vas a aportar?</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Cuántos ahorros vas a aportar?</label>
               <div className="text-center">
                 <input
                   type="number"
@@ -319,7 +315,7 @@ const InteractiveForm = () => {
                   max={formData.precioVivienda}
                   value={formData.ahorros}
                   onChange={(e) => handleRangeChange('ahorros', e.target.value)}
-                  className="w-96 mb-4"
+                  className="w-96 mb-6"
                 />
               </div>
               <div className='flex justify-between'>
@@ -329,7 +325,7 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
@@ -357,7 +353,7 @@ const InteractiveForm = () => {
                   max="2"
                   value={formData.solicitantes}
                   onChange={(e) => handleRangeChange('solicitantes', e.target.value)}
-                  className="w-96 mb-4"
+                  className="w-96 mb-6"
                 />
               </div>
               <div className='flex justify-between'>
@@ -406,7 +402,7 @@ const InteractiveForm = () => {
                         newEdades[index] = e.target.value; // Cambiar la edad del solicitante correspondiente
                         setFormData({ ...formData, edadesSolicitantes: newEdades });
                       }}
-                      className="w-96 mb-4"
+                      className="w-96 mb-6"
                     />
                   </div>
                 ))}
@@ -449,7 +445,7 @@ const InteractiveForm = () => {
                       ? 2
                       : 0
                   }
-                  className="w-96 mb-4"
+                  className="w-96 mb-9"
                   onChange={(e) => handleRangeChangeStep8('familiaNumerosa', e.target.value)}
                 />
               </div>
@@ -466,11 +462,11 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 9 && (
-            <div className='absolute bottom-0'>
-              <div className='absolute w-28 left-64 bottom-96 mb-56'>
+            <div className='absolute -bottom-6'>
+              <div className='absolute w-28 left-64 bottom-96 mb-64'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-16 ms-4 text-white font-bold">Indica el total de ingresos netos mensuales:</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Cuantos ingresos netos tienes al mes?</label>
               <div className='text-center'>
                 <input
                   type="number"
@@ -509,7 +505,7 @@ const InteractiveForm = () => {
               <div className='absolute w-28 left-64 bottom-96 mb-44'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96  p-2 text-3xl text-start mb-5 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
+              <label className="absolute bottom-96 p-2 text-3xl text-start mb-3 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
               <div className='text-center'>
               <input
                 type="number"
@@ -527,7 +523,7 @@ const InteractiveForm = () => {
                 step ="25"
                 value={formData.cuotasCreditos}
                 onChange={(e) => handleRangeChange('cuotasCreditos', e.target.value)}
-                className="w-96"
+                className="w-96 mb-3"
               />
               </div>
               {formData.cuotasCreditos < "1" && (

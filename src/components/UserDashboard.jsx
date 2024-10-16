@@ -18,7 +18,7 @@ const UserDashboard = () => {
     
     
     return (
-        <div className="mx-auto rounded-lg p-6 text-center">
+        <div className="mx-auto rounded-lg p-6 text-center ">
             <div className="flex justify-end border-b-2">
                 <Link to={"/"}>
                     <button className="p-1 text-md text-blue-500 font-semibold">OK</button>
