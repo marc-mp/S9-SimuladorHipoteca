@@ -27,7 +27,7 @@ const SliderComponent = () => {
   }, []);
 
   return (
-    <div className="slider-container overflow-hidden relative ">
+    <div className="h-96 w-screen slider-container overflow-hidden relative ">
       <div
         className="slider-wrapper flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -42,13 +42,13 @@ const SliderComponent = () => {
       {/* Botones opcionales para desplazamiento manual */}
       <button
         onClick={() => setCurrentIndex((prevIndex) => (prevIndex - 1 + sliderImages.length) % sliderImages.length)}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full"
       >
         ❮
       </button>
       <button
         onClick={() => nextSlide()}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full"
       >
         ❯
       </button>

@@ -1,13 +1,15 @@
 
 const Footer = () => (
 
-<footer className="space-x-6 space-y-10 py-14 px-4 bg-black text-white">
+<footer className="space-x-6 space-y-10 py-14 px-3 bg-black text-white">
+  <div className="space-x-6 space-y-10 text-center">
     <a className="">About us</a>
     <a className="">Contact</a>
     <a className="">Jobs</a>
     <a className="">Press kit</a>
+  </div>
   <div>
-    <div className="flex justify-center space-x-8 ">
+    <div className="flex justify-center space-x-12 ">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +46,7 @@ const Footer = () => (
     </div>
   </div>
   <aside >
-    <p className="text-sm mx-auto">Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+    <p className="text-sm text-center pe-6">Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
   </aside>
 </footer>
 

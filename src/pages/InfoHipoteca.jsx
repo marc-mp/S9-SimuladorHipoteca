@@ -1,21 +1,7 @@
-// import Header from '../components/landingPage/Header';
-// import Testimonials from '../components/landingPage/Testimonials';
-// import Faqs from '../components/landingPage/Faqs';
-// import InfoStepsCalculator from '../components/landingPage/InfoStepsCalculator';
-
-// const Home = () => (
-//   <div className="justify-center text-center mx-auto p-8">
-//      <Header />
-//       <InfoStepsCalculator />
-//       <Faqs />
-//       <Testimonials />
-//   </div>
-// );
-// export default Home;
-
 import { useState } from 'react';
-import Faqs from '../components/Faqs';
-
+import Faqs from '../components/Faqs'
+import SliderComponent from '../components/SliderComponent'
+import Footer from '../components/Footer'
 
 
 const InfoHipoteca = () => {
@@ -26,11 +12,10 @@ const InfoHipoteca = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md mt-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Cómo funciona una hipoteca: elementos a tener en cuenta</h2>
-
-      {/* Sección 1: ¿Qué es una hipoteca? */}
-      <div className="border-b border-gray-300 py-4">
+    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-md mt-6">
+      <h2 className="text-3xl font-bold text-gray-800 p-4">Cómo funciona una hipoteca? </h2>
+      <p className="text-2xl font-bold text-gray-800 px-4 mb-6">Elementos a tener en cuenta:</p>
+      <div className="border-b border-gray-300 p-4">
         <button
           onClick={() => toggleSection(1)}
           className="flex items-center justify-between w-full text-lg font-medium text-gray-700"
@@ -52,9 +37,7 @@ const InfoHipoteca = () => {
           </p>
         )}
       </div>
-
-      {/* Sección 2: Capital de la hipoteca */}
-      <div className="border-b border-gray-300 py-4">
+      <div className="border-b border-gray-300 p-4">
         <button
           onClick={() => toggleSection(2)}
           className="flex items-center justify-between w-full text-lg font-medium text-gray-700"
@@ -85,9 +68,7 @@ const InfoHipoteca = () => {
           </div>
         )}
       </div>
-
-      {/* Sección 3: Intereses de una hipoteca */}
-      <div className="border-b border-gray-300 py-4">
+      <div className="border-b border-gray-300 p-4">
         <button
           onClick={() => toggleSection(3)}
           className="flex items-center justify-between w-full text-lg font-medium text-gray-700"
@@ -121,9 +102,7 @@ const InfoHipoteca = () => {
           </div>
         )}
       </div>
-
-      {/* Sección 4: Periodo de amortización */}
-      <div className="border-b border-gray-300 py-4 ">
+      <div className="border-b border-gray-300 p-4 ">
         <button
           onClick={() => toggleSection(4)}
           className="flex items-center justify-between w-full text-lg font-medium text-gray-700"
@@ -152,9 +131,7 @@ const InfoHipoteca = () => {
           </div>
         )}
       </div>
-
-      {/* Sección 5: Otros conceptos importantes */}
-      <div className="py-4">
+      <div className="p-4">
         <button
           onClick={() => toggleSection(5)}
           className="flex items-center justify-between w-full text-lg font-medium text-gray-700"
@@ -180,7 +157,14 @@ const InfoHipoteca = () => {
           </div>
         )}
       </div>
+      <div className='mt-8'>
+        <SliderComponent />
+      </div>
       <Faqs />
+      <div className=''>
+        <Footer />
+      </div>
+
     </div>
   );
 };

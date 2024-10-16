@@ -100,19 +100,19 @@ const Faqs = () => {
 
   return (
     
-    <section id="FaqSection" className="bg-white p-6 rounded-lg">
-      <h2 className="text-3xl font-bold mb-6 ">
+    <section id="FaqSection" className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md mt-6">
+      <h2 className="text-3xl text-gray-800 font-bold mb-6 ">
         Preguntas frequentes sobre hipotecas
       </h2>
       <div className="space-y-4">
         {faqData.map((faq, index) => (
-          <div key={index} className="border-b-2 pb-4">
+          <div key={index} className="border-b border-gray-300 py-4">
             <button
               onClick={() => toggleQuestion(index)}
               className="text-left w-full flex justify-between items-center text-lg font-semibold text-gray-800 hover:text-blue-600"
             >
               {faq.question}
-              <span className="text-xl">
+              <span className="text-3xl">
                 {openQuestion === index ? '-' : '+'}
               </span>
             </button>
