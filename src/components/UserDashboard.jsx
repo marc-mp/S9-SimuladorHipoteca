@@ -10,10 +10,10 @@ const UserDashboard = () => {
     const {usuario, setUsuario} = useContext(AuthContext);
 
     const logOut = () => {
-    auth.signOut().then(() => {
-        setUsuario(null)
-        navigate('/')
-    })
+        auth.signOut().then(() => {
+            setUsuario(null)
+            navigate('/')
+        })
     }
     
     

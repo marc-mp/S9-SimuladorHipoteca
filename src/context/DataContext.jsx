@@ -1,20 +1,16 @@
 import { createContext, useState } from 'react';
 
-// Creamos el contexto
 export const DataContext = createContext();
 
-// Proveedor del contexto
 const DataContextProvider = ({ children }) => {
-  // Estado que almacenará los datos del formulario
 
-
+  // objeto con los datos requeridos en el formulario
   const [formData, setFormData] = useState({
     precioVivienda: 0,
     valorTasacion: 0,
     duracion: 0,
     interes: 0,
     tipoCompra: '',
-    // tipoVivienda: '',
     ahorros: 0,
     solicitantes: 0,
     edadesSolicitantes: [],
@@ -24,7 +20,7 @@ const DataContextProvider = ({ children }) => {
   });
 
   
-  // Lista de videos
+  // array con lista de videos que se muestran en el formulario
   const videos = [
     '/src/assets/videoStep0.mp4',
     '/src/assets/videoStep1.mp4',
@@ -39,6 +35,7 @@ const DataContextProvider = ({ children }) => {
     '/src/assets/videoStep10.mp4',
   ];
 
+  //array de las imagenes que se muestran usando el componente SliderComponent
   const sliderImages = [
     '/src/assets/image1.jpg',
     '/src/assets/image2.jpg',
@@ -46,15 +43,15 @@ const DataContextProvider = ({ children }) => {
     '/src/assets/image4.jpg',
   ];
 
+  // variables para contador de steps
   const [step, setStep] = useState(0);
   const totalSteps = videos.length
   
-  // Validación: Asegúrate de que todos los campos requeridos estén presentes y son números válidos
+  // Validación: Asegurar que todos los campos requeridos estén presentes y son números válidos
   const precioVivienda = parseFloat(formData?.precioVivienda) || 0;
   const ahorros = parseFloat(formData?.ahorros) || 0;
   const interes = parseFloat(formData?.interes) || 0;
   const duracion = parseInt(formData?.duracion) || 0;
-
 
   // Cálculo del préstamo total solicitado
   const prestamoHipoteca = precioVivienda - ahorros;
@@ -71,8 +68,10 @@ const DataContextProvider = ({ children }) => {
     ? Number((prestamoHipoteca * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTermMonths)))
     : 0;
 
-  // Total de pagos y de intereses
+  // varible Total de pagos
   const totalPayment = Number(monthlyPayment * loanTermMonths);
+
+  //variable total intereses
   const totalInterest = Number(totalPayment - prestamoHipoteca);
 
   // Función para calcular el porcentaje de impuestos
@@ -86,38 +85,43 @@ const DataContextProvider = ({ children }) => {
       const someYoungerAndSomeOlder = formData.edadesSolicitantes.some(edad => edad < 33) && 
                                       formData.edadesSolicitantes.some(edad => edad > 32);
 
-    if (allYoungerThan33) {
-      return 0.05; // 5% si todos son menores de 33 años
+      if (allYoungerThan33) {
+        return 0.05; // 5% si todos son menores de 33 años
+      }
+
+      if (someYoungerAndSomeOlder) {
+        return 0.075; // 7.5% si hay un menor de 33 y otro mayor de 32
+      }
     }
+    return 0.10; // Por defecto, retornar 10% si no se cumplen otras condiciones
+  };
 
-    if (someYoungerAndSomeOlder) {
-      return 0.075; // 7.5% si hay un menor de 33 y otro mayor de 32
-    }
-  }
-
-  return 0.10; // Por defecto, retornar 10% si no se cumplen otras condiciones
-};
-
+  // variable % impuestos
   const taxRate = taxPercentaje()
-  // Asegurarse que siempre sea un número válido (fallback a 0 si algo falla)
+
+  // impuestos totales
   const taxes = !isNaN(precioVivienda) && !isNaN(taxPercentaje()) ? Number(precioVivienda * taxPercentaje()) : 0;
 
-  // Costo total de la vivienda
+  // Coste total de la vivienda
   const totalCost = Number(precioVivienda + taxes + totalInterest);
 
+  //ratio endeudamiento
+  const capacidadEndeudamiento = Number(formData.ingresosNetos - formData.cuotasCreditos) * 0.40
+  const ratioEndeudamiento = monthlyPayment / (formData.ingresosNetos - formData.cuotasCreditos) * 100
 
   // Función para actualizar los datos del formulario
   const updateFormData = (newData) => {
     setFormData((prevData) => ({ ...prevData, ...newData }));
   };
 
+  // variable y funcion para guardar reporte generado en componente Report y poder usarlo en componente HistorialSimulaciones
   const [reportesGuardados, setReportesGuardados] = useState([]);
 
   const guardarReporte = (reporte) => {
       setReportesGuardados((prevReportes) => [...prevReportes, reporte]);
   };
 
-  // slider info
+  // variables para el componente SliderInfo que se usa en componente Home
   const info1 = {
     icon1:       
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1.5" stroke="currentColor" className="size-10">
@@ -146,6 +150,37 @@ const DataContextProvider = ({ children }) => {
     info2, 
     info3
   ];
+
+  //variables y configuracion datos del grafico (componente ReportChart)
+  const data = {
+    labels: ['Precio Vivienda', 'Impuestos', 'Interés Total'],
+    datasets: [
+      {
+        label: 'Costos totales',
+        data: [precioVivienda, taxes, totalInterest],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+      tooltip: {
+        callbacks: {
+          label: function(tooltipItem) {
+            const value = tooltipItem.raw;
+            return `$${value.toLocaleString()}`;
+          }
+        }
+      }
+    }
+  };
 
 
 
@@ -177,7 +212,10 @@ const DataContextProvider = ({ children }) => {
                                   info1, 
                                   info2, 
                                   info3,
-
+                                  data,
+                                  options,
+                                  capacidadEndeudamiento,
+                                  ratioEndeudamiento
 
 
                                   }}>

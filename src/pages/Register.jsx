@@ -8,22 +8,18 @@ import { Link } from 'react-router-dom'
 // import { AuthContext } from '../context/AuthContext.jsx';
 
 
-
-// const auth = getAuth(appFirebase)
-
 const Register = () => {
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
-
 
     const handleSignUp = () => {
         if (!name || !email || !password) {
             alert('Por favor, complete todos los campos.')
             return
         }
-    
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 alert('Registro completado. Ahora, inicia sesión para acceder.')

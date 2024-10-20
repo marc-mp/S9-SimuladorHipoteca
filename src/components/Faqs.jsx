@@ -1,8 +1,6 @@
-
 import { useState } from 'react';
 
 const Faqs = () => {
-  // Estado para controlar qué pregunta está abierta
   const [openQuestion, setOpenQuestion] = useState(null);
 
   // Función para alternar la pregunta abierta
@@ -99,7 +97,6 @@ const Faqs = () => {
   
 
   return (
-    
     <section id="FaqSection" className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md mt-6">
       <h2 className="text-3xl text-gray-800 font-bold mb-6 ">
         Preguntas frequentes sobre hipotecas
@@ -123,8 +120,8 @@ const Faqs = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default Faqs;
 

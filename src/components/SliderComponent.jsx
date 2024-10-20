@@ -3,9 +3,6 @@ import { DataContext } from '../context/DataContext.jsx';
 import { useContext } from 'react';
 
 
-// Imágenes de ejemplo (puedes reemplazarlas con las tuyas)
-
-
 const SliderComponent = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,14 +13,12 @@ const SliderComponent = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
   };
 
-  // useEffect para crear el intervalo de desplazamiento automático
+  // desplazamiento automático slide cada 3 segundos
   useEffect(() => {
     const sliderInterval = setInterval(() => {
       nextSlide();
-    }, 3000); // Mueve las tarjetas cada 3 segundos
-
-    // Limpia el intervalo cuando el componente se desmonte
-    return () => clearInterval(sliderInterval);
+    }, 3000); 
+    return () => clearInterval(sliderInterval); 
   }, []);
 
   return (
@@ -38,8 +33,6 @@ const SliderComponent = () => {
           </div>
         ))}
       </div>
-
-      {/* Botones opcionales para desplazamiento manual */}
       <button
         onClick={() => setCurrentIndex((prevIndex) => (prevIndex - 1 + sliderImages.length) % sliderImages.length)}
         className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent p-2 rounded-full"

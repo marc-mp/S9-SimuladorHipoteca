@@ -19,8 +19,6 @@ const AuthContextProvider = ({ children }) => {
 }, [auth]);
   
 
-  // onAuthStateChanged(auth, (user) => setUsuario(user));
-
   return (
     <AuthContext.Provider value={{ usuario, setUsuario,
 
@@ -33,4 +31,3 @@ const AuthContextProvider = ({ children }) => {
 export default AuthContextProvider
 
 
-// export const useAuth = () => useContext(AuthContext);

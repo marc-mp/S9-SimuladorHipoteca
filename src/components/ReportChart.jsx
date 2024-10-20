@@ -6,38 +6,8 @@ import { DataContext } from '../context/DataContext.jsx';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ReportChart = () => {
-  const { precioVivienda, taxes, totalInterest, totalCost } = useContext(DataContext);
+  const { totalCost, data, options } = useContext(DataContext);
 
-  // Configuración de los datos para el gráfico
-  const data = {
-    labels: ['Precio Vivienda', 'Impuestos', 'Interés Total'],
-    datasets: [
-      {
-        label: 'Costos totales',
-        data: [precioVivienda, taxes, totalInterest],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
-      tooltip: {
-        callbacks: {
-          label: function(tooltipItem) {
-            const value = tooltipItem.raw;
-            return `$${value.toLocaleString()}`;
-          }
-        }
-      }
-    }
-  };
 
   return (
     <div className="container max-w-lg mx-auto p-6  rounded-xl space-y-4">

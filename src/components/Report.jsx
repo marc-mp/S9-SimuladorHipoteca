@@ -15,9 +15,11 @@ const Report = () => {
         ahorros,
         interes,
         duracion,
+        ratioEndeudamiento,
+        capacidadEndeudamiento,
         setFormData,
         setStep,
-        guardarReporte 
+        guardarReporte
     } = useContext(DataContext);
 
     const navigate = useNavigate();
@@ -53,6 +55,8 @@ const Report = () => {
           taxRate: taxRate,
           taxes: taxes,
           totalCost: totalCost,
+          ratioEndeudamiento: ratioEndeudamiento,
+          capacidadEndeudamiento: capacidadEndeudamiento
           }
     
       guardarReporte(nuevoReporte);
@@ -73,28 +77,56 @@ const Report = () => {
             <strong>Precio de la vivienda:</strong> {precioVivienda.toFixed(2)} €
           </div>
           <div className="mb-2">
+            <strong>Impuestos ({(taxRate * 100).toFixed(2)}%)</strong> {taxes.toFixed(2)} €
+          </div>
+
+          <div className="mb-2">
             <strong>Ahorros aportados:</strong> {ahorros.toFixed(2)} €
-          </div>
-          <div className="mb-2">
-            <strong>Préstamo total solicitado:</strong> {prestamoHipoteca.toFixed(2)} €
-          </div>
-          <div className="mb-2">
-            <strong>Pago mensual:</strong> {monthlyPayment.toFixed(2)} €
-          </div>
-          <div className="mb-2">
-            <strong>Tasa de interés anual:</strong> {interes} %
           </div>
           <div className="mb-2">
             <strong>Duración de la hipoteca:</strong> {duracion} años
           </div>
           <div className="mb-2">
-            <strong>Total de intereses pagados:</strong> {totalInterest.toFixed(2)} €
+            <strong>Tasa de interés anual:</strong> {interes} %
           </div>
           <div className="mb-2">
-            <strong>Impuestos ({(taxRate * 100).toFixed(2)}%)</strong> {taxes.toFixed(2)} €
+            <strong>Total intereses de la hipoteca:</strong> {totalInterest.toFixed(2)} €
+          </div>
+          <div className="mb-2">
+            <strong>Préstamo Hipoteca solicitada:</strong> {prestamoHipoteca.toFixed(2)} €
+          </div>
+          <div className="mb-2">
+            <strong>Cuota mensual hipoteca:</strong> {monthlyPayment.toFixed(2)} €
+          </div>
+          <div className="mb-2">
+            <strong>Capacidad maxima endeudamiento:</strong> {capacidadEndeudamiento.toFixed(0)} €
+          </div>
+          <div className='inline-flex mb-2 space-x-2'>
+            <strong>Ratio endeudamiento (max 40%): </strong> 
+            <p className={` font-bold ${ratioEndeudamiento < 36 ? 'text-green-700' : ratioEndeudamiento < 41 ? 'text-orange-500' : 'text-red-600'} `}>  {ratioEndeudamiento.toFixed(0)}%</p>
           </div>
           <div className="mb-4">
-            <strong>Coste total de la vivienda:</strong> {totalCost.toFixed(2)} €
+            <strong>Coste total al finalizar hipoteca:</strong> {totalCost.toFixed(2)} €
+          </div>
+          <div className='flex justify-center'>
+            {ratioEndeudamiento < 36 && (
+              <div  className='inline-flex space-x-3 items-center'>
+                <div className='rounded-full w-4 h-4 bg-green-500'></div>
+                <p className='text-green-600 font-bold text-xl'>HIPOTECA ACEPTADA</p>
+              </div>
+            )}
+              {ratioEndeudamiento > 36 && ratioEndeudamiento < 41 && (
+              <div  className='inline-flex space-x-3 items-center'>
+                <div className='rounded-full w-4 h-4 bg-orange-500'></div>
+                <p className='text-orange-500 font-bold text-xl'>HIPOTECA ACEPTADA</p>
+              </div>
+            )}
+            {ratioEndeudamiento > 40 && (
+              <div  className='inline-flex space-x-3 items-center'>
+                <div className='rounded-full w-4 h-4 bg-red-600'></div>
+                <p className='text-red-600 font-bold text-xl'>HIPOTECA RECHAZADA</p>
+              </div>
+            )}
           </div>
           <ReportChart />
           <div className="space-y-4 md:w-56">
@@ -104,7 +136,7 @@ const Report = () => {
                   className={`space-x-4 py-2 text-center px-4 rounded w-full ${
                     isGuardado ? 'bg-pink-500' : 'bg-blue-600'
                   } text-white`}
-                  disabled={isGuardado} // Deshabilitar el botón una vez guardado
+                  disabled={isGuardado} // Deshabilita el botón una vez ha guardado el reporte
                 >
                     {isGuardado ? 'Hipoteca Guardada' : 'Guardar hipoteca'}
                 </button>

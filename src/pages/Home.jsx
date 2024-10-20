@@ -1,7 +1,6 @@
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import llavesLogoCasa from '../assets/llavesLogoCasa.mp4'
-// import SliderComponent from '../components/SliderComponent';
 import SliderInfoCalc from '../components/SliderInfoCalc';
 import Footer from '../components/Footer';
 
@@ -12,7 +11,7 @@ const Home = () => (
       <Header/>
     </nav>
     <video
-    className="w-full" //h-96
+    className="w-full" 
     src={llavesLogoCasa}  
     autoPlay
     loop

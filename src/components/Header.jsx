@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
@@ -24,21 +24,21 @@ const Header = () => {
     navigate('/UserDashboard');
   };
 
-  const logOut = () => {
-    auth.signOut().then(() => {
-      setUsuario(null);
-      navigate('/');
-    });
-  };
+  // const logOut = () => {
+  //   auth.signOut().then(() => {
+  //     setUsuario(null);
+  //     navigate('/');
+  //   });
+  // };
 
   return (
     <header className="container border-none">
-      <nav className="flex justify-end me-4 border-none ">
+      <nav className="flex justify-end  border-none ">
         <div className="flex space-x-4">
           <div className='flex justify-end mt-4 items-center'>
             {usuario ? (
-              <div className='inline-flex items-center'>
-                <button className="w-9 h-9 rounded-full mx-auto mb-4  " onClick={handleGoTo}>
+              <div className='inline-flex items-center me-5'>
+                <button className="w-9 h-9 rounded-full  mb-4" onClick={handleGoTo}>
                   <img
                     src={userImagen} 
                     alt="Perfil"
@@ -47,8 +47,8 @@ const Header = () => {
                 </button>
               </div>
             ) : (
-              <div className='me-8'>
-                <button className="text-gray-600 hover:text-gray-900 inline-flex">
+              <div className='me-4 '>
+                <button className="font-semibold mb-7 inline-flex">
                   <Link to="/Login">Iniciar sesión</Link>
                 </button>
               </div>
@@ -57,8 +57,8 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
 

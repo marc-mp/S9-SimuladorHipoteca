@@ -63,7 +63,7 @@ const InfoHipoteca = () => {
             </p>
             <p className="mt-2 font-medium">El 20% - 30% restante</p>
             <p>
-              El cliente debe cubrir este porcentaje como "entrada" en la compra del inmueble, lo que demuestra su capacidad de ahorro y reduce el riesgo del banco.
+              El cliente debe cubrir este porcentaje como entrada en la compra del inmueble, lo que demuestra su capacidad de ahorro y reduce el riesgo del banco.
             </p>
           </div>
         )}

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import StepForm from './StepForm.jsx';
+import '../App.css'
 
 
 const InteractiveForm = () => {
@@ -20,7 +21,7 @@ const InteractiveForm = () => {
   };
 
   const handleRangeChangeStep4 = (name, value) => {
-    const options = ["", "habitual obra nueva", "habitual Segunda mano", "segunda residencia"];
+    const options = ["", "Habitual obra nueva", "Habitual Segunda mano", "Segunda residencia"];
     setFormData({ ...formData, [name]: options[value] });
     console.log(formData);
   };
@@ -95,7 +96,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
                 <input
                   type="number"
-                  className=" w-full p-2 mb-4 text-center text-5xl text-white font-bold border-transparent placeholder-transparent bg-transparent"
+                  className=" w-full p-2 mb-4 text-center text-5xl text-white font-bold border-transparent placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce el precio"
                   {...register('precioVivienda', { required: true })}
                   value={formData.precioVivienda}
@@ -110,7 +111,7 @@ const InteractiveForm = () => {
                   step="5000"
                   value={formData.precioVivienda}
                   onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
-                  className="w-96  mb-6"
+                  className="w-96 mb-6 range-slider"
                 />
               </div>
               <div className='flex justify-end'>
@@ -126,11 +127,11 @@ const InteractiveForm = () => {
               <div className='absolute w-24 left-64 bottom-96 mb-44'>
                 <StepForm />
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el valor de tasacion?:</label>
+              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el valor de tasacion?</label>
               <div className='text-center'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce el valor"
                   {...register('valorTasacion', { required: true })}
                   value={formData.valorTasacion}
@@ -169,7 +170,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce los años"
                   {...register('duracion', { required: true })}
                   value={formData.duracion}
@@ -207,7 +208,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce el tipo de interés"
                   {...register('interes', { required: true })}
                   value={formData.interes}
@@ -237,7 +238,6 @@ const InteractiveForm = () => {
               </div>
             </div>
           )}
-
           {step === 4 && (
               <div>
                 <div className='absolute w-24 left-64 bottom-96 mb-44'>
@@ -258,11 +258,11 @@ const InteractiveForm = () => {
                     max="3"
                     step="1"
                     value={
-                      formData.tipoCompra === "habitual obra nueva"
+                      formData.tipoCompra === "Habitual obra nueva"
                         ? 1
-                        : formData.tipoCompra === "habitual Segunda mano"
+                        : formData.tipoCompra === "Habitual Segunda mano"
                         ? 2
-                        : formData.tipoCompra === "segunda residencia"
+                        : formData.tipoCompra === "Segunda residencia"
                         ? 3
                         : 0
                     }
@@ -301,7 +301,7 @@ const InteractiveForm = () => {
               <div className="text-center">
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce la cantidad"
                   {...register('ahorros', { required: true })}
                   value={formData.ahorros}
@@ -339,7 +339,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-white text-5xl font-bold placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-white text-5xl font-bold placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce la cantidad"
                   {...register('ahorros', { required: true })}
                   value={formData.solicitantes}
@@ -379,7 +379,7 @@ const InteractiveForm = () => {
                   <div key={index} className="mb-4">
                     <input
                       type="number"
-                      className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                      className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                       placeholder={`Introduce la edad del solicitante ${index + 1}`}
                       {...register(`edadesSolicitantes.${index}`, { required: true })}
                       value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
@@ -470,7 +470,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce tus ingresos"
                   {...register('ingresosNetos', { required: true })}
                   value={formData.ingresosNetos}
@@ -509,7 +509,7 @@ const InteractiveForm = () => {
               <div className='text-center'>
               <input
                 type="number"
-                className="w-full p-2 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent"
+                className="w-full p-2 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                 placeholder="Introduce tus cuotas mensuales"
                 {...register('cuotasCreditos', { required: true })}
                 value={formData.cuotasCreditos}

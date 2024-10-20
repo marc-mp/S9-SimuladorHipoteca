@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-// import { DataContext } from '../context/DataContext.jsx';
 import { AuthContext } from '../context/AuthContext.jsx';
 
 const Login = () => {
@@ -77,7 +76,7 @@ const Login = () => {
           <path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" />
         </svg>
         <input
-          type={showPassword ? 'text' : 'password'}  // Cambia el tipo de input según el estado
+          type={showPassword ? 'text' : 'password'}  
           className="grow px-2 py-1 text-base sm:text-lg border-b-2"
           placeholder="Password"
           value={password}

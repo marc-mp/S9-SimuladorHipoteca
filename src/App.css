@@ -1,0 +1,26 @@
+
+
+.range-slider::-webkit-slider-thumb {
+    width: 32px; /* Aumenta el tamaño del thumb */
+    height: 32px;
+    background-color: white; /* Cambia el color del thumb, similar a bg-blue-500 */
+    border-radius: 9999px; /* Rounded-full en Tailwind */
+    cursor: pointer; /* Cursor-pointer */
+}
+  
+  .range-slider::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+  
+.range-slider::-ms-thumb {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+  
