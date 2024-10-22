@@ -170,8 +170,8 @@ const InfoHipoteca = () => {
       <div className='mt-8'>
         <SliderComponent />
       </div>
-      <Faqs />
-      <div className=''>
+        <Faqs />
+      <div>
         <Footer />
       </div>
 

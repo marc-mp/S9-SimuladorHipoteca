@@ -76,11 +76,11 @@ const DataContextProvider = ({ children }) => {
 
   // Función para calcular el porcentaje de impuestos
   const taxPercentaje = () => {
-    if (formData.familiaNumerosa === "SI" && formData.tipoCompra === "habitual Segunda mano" ) {
+    if (formData.familiaNumerosa === "SI" && formData.tipoCompra === "Habitual Segunda mano" ) {
       return 0.05; // 5% si es familia numerosa
     }
 
-    if (formData.tipoCompra === "habitual Segunda mano") {
+    if (formData.tipoCompra === "Habitual Segunda mano") {
       const allYoungerThan33 = formData.edadesSolicitantes.every(edad => edad < 33);
       const someYoungerAndSomeOlder = formData.edadesSolicitantes.some(edad => edad < 33) && 
                                       formData.edadesSolicitantes.some(edad => edad > 32);

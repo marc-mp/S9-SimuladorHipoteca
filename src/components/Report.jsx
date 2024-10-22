@@ -23,7 +23,7 @@ const Report = () => {
     } = useContext(DataContext);
 
     const navigate = useNavigate();
-    const [isGuardado, setIsGuardado] = useState(false); // Nuevo estado
+    const [isGuardado, setIsGuardado] = useState(false); 
 
     const handleGoHome = () => {
         setFormData({
@@ -44,23 +44,23 @@ const Report = () => {
     };
 
     const handleGuardarReporte = () => {
-      const nuevoReporte = {
-          precioVivienda: precioVivienda,
-          ahorros: ahorros,
-          prestamoHipoteca: prestamoHipoteca,
-          monthlyPayment: monthlyPayment,
-          interes: interes,
-          duracion: duracion,
-          totalInterest: totalInterest,
-          taxRate: taxRate,
-          taxes: taxes,
-          totalCost: totalCost,
-          ratioEndeudamiento: ratioEndeudamiento,
-          capacidadEndeudamiento: capacidadEndeudamiento
-          }
-    
-      guardarReporte(nuevoReporte);
-      setIsGuardado(true);
+          const nuevoReporte = {
+              precioVivienda: precioVivienda,
+              ahorros: ahorros,
+              prestamoHipoteca: prestamoHipoteca,
+              monthlyPayment: monthlyPayment,
+              interes: interes,
+              duracion: duracion,
+              totalInterest: totalInterest,
+              taxRate: taxRate,
+              taxes: taxes,
+              totalCost: totalCost,
+              ratioEndeudamiento: ratioEndeudamiento,
+              capacidadEndeudamiento: capacidadEndeudamiento
+              }
+        
+          guardarReporte(nuevoReporte);
+          setIsGuardado(true);
     };
 
     // Validación por si no hay datos para generar reporte

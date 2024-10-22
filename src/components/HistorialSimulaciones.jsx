@@ -10,7 +10,7 @@ const HistorialSimulaciones = () => {
         <div className="mx-3 ">
             <div className="flex justify-end">
                 <Link to={"/UserDashboard"}>
-                    <button className="p-1 mb-4 text-sm text-blue-500 font-semibold ">Volver</button>
+                    <button className=" justify-start px-4 py-1 ms-4 mb-4 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
                 </Link>
             </div>
             <h2 className="text-2xl text-center font-bold mb-4">Historial de Simulaciones</h2>

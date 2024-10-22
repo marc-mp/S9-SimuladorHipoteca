@@ -42,7 +42,7 @@ const Header = () => {
                   <img
                     src={userImagen} 
                     alt="Perfil"
-                    className="w-9 h-9 rounded-full mx-auto border-2 border-gray-300"
+                    className="w-9 h-9 rounded-full mx-auto border-2 border-white"
                   /> 
                 </button>
               </div>

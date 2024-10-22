@@ -34,7 +34,7 @@ const Home = () => (
     <div className='mx-auto mb-10 space-y-4 max-w-lg'>
       <div>
             <Link to="/InteractiveForm">
-              <button className="bg-black border-4 border-black text-white font-bold text-2xl py-4 w-80">
+              <button className="bg-black border-4 border-black text-white font-semibold text-2xl py-4 w-80">
                 CALCULAR HIPOTECA
               </button>
             </Link>
