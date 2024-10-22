@@ -4,7 +4,6 @@ import InteractiveForm from '../components/InteractiveForm';
 // import PrivateRoute from '../components/PrivateRoute';
 // import { AuthProvider } from '../context/AuthContext';
 // import DataContextProvider  from '../context/DataContext';
-import '../App.css'
 
 
 const App = () => (

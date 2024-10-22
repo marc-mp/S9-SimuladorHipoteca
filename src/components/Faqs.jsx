@@ -97,11 +97,13 @@ const Faqs = () => {
   
 
   return (
-    <section id="FaqSection" className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md mt-6">
-      <h2 className="text-3xl text-gray-800 font-bold mb-6 ">
-        Preguntas frequentes sobre hipotecas
-      </h2>
-      <div className="space-y-4">
+    <section id="FaqSection" className="max-w-lg mx-auto bg-white rounded-lg shadow-md mt-6">
+      <div>
+        <h2 className="text-3xl text-black font-bold mb-6 p-4">
+          Preguntas frequentes sobre hipotecas
+        </h2>
+      </div>
+      <div className="space-y-4 p-4">
         {faqData.map((faq, index) => (
           <div key={index} className="border-b border-gray-300 py-4">
             <button

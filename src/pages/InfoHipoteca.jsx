@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Faqs from '../components/Faqs'
 import SliderComponent from '../components/SliderComponent'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom';
+
 
 
 const InfoHipoteca = () => {
@@ -13,8 +15,16 @@ const InfoHipoteca = () => {
 
   return (
     <div className="max-w-lg mx-auto bg-white rounded-lg shadow-md mt-6">
-      <h2 className="text-3xl font-bold text-gray-800 p-4">Cómo funciona una hipoteca? </h2>
-      <p className="text-2xl font-bold text-gray-800 px-4 mb-6">Elementos a tener en cuenta:</p>
+      <div className="inline-flex">
+        <Link to={"/"}>
+          <button className=" justify-start px-4 py-1 ms-4 mb-2 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
+        </Link>
+        <h1 className='ms-44 text-xl font-semibold'>Hipotech</h1>
+      </div>
+      <div className=''>
+        <h2 className="text-3xl font-bold text-black p-4">Cómo funciona una hipoteca? </h2>
+      </div>
+        <p className="text-2xl font-bold text-black px-4 mb-6">Elementos a tener en cuenta:</p>
       <div className="border-b border-gray-300 p-4">
         <button
           onClick={() => toggleSection(1)}

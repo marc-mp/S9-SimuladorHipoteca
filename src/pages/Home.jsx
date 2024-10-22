@@ -34,15 +34,15 @@ const Home = () => (
     <div className='mx-auto mb-10 space-y-4 max-w-lg'>
       <div>
             <Link to="/InteractiveForm">
-              <button className="bg-black border-4 border-black text-white font-semibold text-3xl py-4 w-80">
-                Calcular hipoteca
+              <button className="bg-black border-4 border-black text-white font-bold text-2xl py-4 w-80">
+                CALCULAR HIPOTECA
               </button>
             </Link>
         </div>
         <div>
             <Link to="/InfoHipoteca">
               <button className=" border-yellow-400 text-black font-bold text-2xl border-4 py-4 w-80">
-                Info y FAQs
+                INFO & FAQs
               </button>
             </Link>
         </div>

@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { DataContext } from '../context/DataContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import StepForm from './StepForm.jsx';
-import '../App.css'
 
 
 const InteractiveForm = () => {
@@ -37,6 +36,7 @@ const InteractiveForm = () => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
+  
 
   
   const onSubmit = (name, value) => {
@@ -44,6 +44,24 @@ const InteractiveForm = () => {
     console.log(formData);
     navigate('/Report');
   };
+
+  const handleGoHome = () => {
+    setFormData({
+        precioVivienda: 0,
+        valorTasacion: 0,
+        duracion: 0,
+        interes: 0,
+        tipoCompra: '',
+        ahorros: 0,
+        solicitantes: 0,
+        edadesSolicitantes: [],
+        familiaNumerosa: '',
+        ingresosNetos: 0,
+        cuotasCreditos: 0,
+    });
+    setStep(0);
+    navigate('/');
+};
 
   const isValidStep = () => {
     switch (step) {
@@ -73,6 +91,7 @@ const InteractiveForm = () => {
         return false;
     }
   };
+  
 
   return (
     <div className="relative">
@@ -89,7 +108,14 @@ const InteractiveForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className='w-screen h-44'>
           {step === 0 && (
             <div>
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el precio de la vivienda?</label>
@@ -104,27 +130,33 @@ const InteractiveForm = () => {
                   min={10000}
                   max={1000000}
                 />
-                  <input
+                <input
                   type="range"
                   min="0"
                   max="1000000"
                   step="5000"
                   value={formData.precioVivienda}
                   onChange={(e) => handleRangeChange('precioVivienda', e.target.value)}
-                  className="w-96 mb-6 range-slider"
+                  className="w-96 mb-6"
                 />
               </div>
               <div className='flex justify-end'>
-                {/* <button type="button" className="mt-6 bg-blue-500 text-white px-4 py-2 rounded" onClick={handlePrevStep}>Volver</button> */}
                 {isValidStep() && (
-                  <button type="button" className="bg-white text-black font-bold text-xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 1 && (
             <div>
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el valor de tasacion?</label>
@@ -156,14 +188,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 2 && (
             <div className='absolute -bottom-5'>
-              <div className='absolute w-24 left-64 bottom-96 mb-60'>
+              <div className="absolute bottom-96 mb-48">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-64'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-20 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
@@ -194,14 +233,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4 " onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 3 && (
             <div>
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
@@ -233,14 +279,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>  
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="mt-6 bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 4 && (
               <div>
-                <div className='absolute w-24 left-64 bottom-96 mb-44'>
+                <div className="absolute bottom-96 mb-32">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
                 </div>
                 <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Para qué tipo de vivienda necesitas la hipoteca?</label>
@@ -283,7 +336,7 @@ const InteractiveForm = () => {
                   {isValidStep() && (
                     <button
                       type="button"
-                      className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4"
+                      className="mt-6 bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4"
                       onClick={handleNextStep}
                     >
                       CONTINUAR
@@ -294,7 +347,14 @@ const InteractiveForm = () => {
           )}
           {step === 5 && (
             <div>
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Cuántos ahorros vas a aportar?</label>
@@ -325,14 +385,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 6 && (
             <div>
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold">Cuántos titulares tendrá la hipoteca?</label>
@@ -363,14 +430,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className="mt-6 bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className="mt-6 bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 7 && (
             <div className={formData.solicitantes == 2 ? 'absolute -bottom-11 mt-10' : ''}>
-              <div className={formData.solicitantes == 2 ? 'absolute w-24 left-64 bottom-96 mb-56' : 'absolute w-24 left-64 bottom-96 mb-44'}>
+              <div className={formData.solicitantes == 2 ? "absolute bottom-96 mb-44" : "absolute bottom-96 mb-32"} onClick={handleGoHome} >
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold ">
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className={formData.solicitantes == 2 ? 'absolute w-24 right-5 bottom-96 mb-60' : 'absolute w-24 right-5 bottom-96 mb-48'}>
                 <StepForm />
               </div>
               <label className={formData.solicitantes == 2 ? 'absolute bottom-96 text-3xl text-start mb-16 ms-4 text-white font-bold' : 'absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold' }>Indica las edades de los solicitantes:</label>
@@ -414,14 +488,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className=" bg-white text-black font-semibold text-xl  my-2 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-bold text-2xl  my-2 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 8 && (
             <div >
-              <div className='absolute w-24 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-24 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Eres familia numerosa?</label>
@@ -456,14 +537,21 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
           )}
           {step === 9 && (
             <div className='absolute -bottom-6'>
-              <div className='absolute w-28 left-64 bottom-96 mb-64'>
+              <div className="absolute bottom-96 mb-48">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-28 right-5 bottom-96 mb-64'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Cuantos ingresos netos tienes al mes?</label>
@@ -484,7 +572,7 @@ const InteractiveForm = () => {
                   step ="50"
                   value={formData.ingresosNetos}
                   onChange={(e) => handleRangeChange('ingresosNetos', e.target.value)}
-                  className="w-96 mb-6"
+                  className="w-96 mb-8"
                 />
               </div>
               <div className='flex justify-between'>
@@ -494,7 +582,7 @@ const InteractiveForm = () => {
                   </svg>
                 </button>
                 {isValidStep() && (
-                  <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
+                  <button type="button" className=" bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-6 py-4" onClick={handleNextStep}>CONTINUAR</button>
                 )}
               </div>
             </div>
@@ -502,7 +590,14 @@ const InteractiveForm = () => {
 
           {step === 10 && (
             <div>
-              <div className='absolute w-28 left-64 bottom-96 mb-44'>
+              <div className="absolute bottom-96 mb-32">
+                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                    </svg>
+                  </button>
+              </div>
+              <div className='absolute w-28 right-5 bottom-96 mb-48'>
                 <StepForm />
               </div>
               <label className="absolute bottom-96 p-2 text-3xl text-start mb-3 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
@@ -523,20 +618,20 @@ const InteractiveForm = () => {
                 step ="25"
                 value={formData.cuotasCreditos}
                 onChange={(e) => handleRangeChange('cuotasCreditos', e.target.value)}
-                className="w-96 mb-3"
+                className="w-96 mb-8"
               />
               </div>
-              {formData.cuotasCreditos < "1" && (
+              {/* {formData.cuotasCreditos < "1" && (
                 <span>No</span>
-              )}
-              <div className='flex justify-between'>
+              )} */}
+              <div className='flex justify-between '>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                   {isValidStep() && (
-                    <button type="button" className=" bg-white text-black font-semibold text-xl my-6 mx-4 w-52 px-6 py-4" onClick={onSubmit}>VER RESULTADO</button>
+                    <button type="button" className=" bg-white text-black font-bold text-2xl my-6 mx-4 w-52 px-2 py-4" onClick={onSubmit}>VER RESULTADO</button>
                 )}
               </div>
             </div>
