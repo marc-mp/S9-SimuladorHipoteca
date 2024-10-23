@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAuth } from "firebase/auth";
 import appFirebase from '../Services/firebaseConfig';
-import userImagen from '../assets/userImagen.png';
+import userImagen from '../../public/userImagen.png';
 
 const Header = () => {
   const { usuario, setUsuario } = useContext(AuthContext);

@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import llavesLogoCasa from '../assets/llavesLogoCasa.mp4'
+import llavesLogoCasa from '../../public/llavesLogoCasa.mp4'
 import SliderInfoCalc from '../components/SliderInfoCalc';
 import Footer from '../components/Footer';
 

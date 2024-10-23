@@ -2,8 +2,8 @@ import { auth } from "../Services/firebaseConfig.js";
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext.jsx';
 import { useNavigate, Link } from 'react-router-dom'
-import userImagen from '../assets/userImagen.png'
-import dashboardVideo from '../assets/dashboardVideo.mp4'
+import userImagen from '../../public/userImagen.png'
+import dashboardVideo from '../../public/dashboardVideo.mp4'
 
 
 const UserDashboard = () => {

@@ -22,25 +22,25 @@ const DataContextProvider = ({ children }) => {
   
   // array con lista de videos que se muestran en el formulario
   const videos = [
-    '/src/assets/videoStep0.mp4',
-    '/src/assets/videoStep1.mp4',
-    '/src/assets/videoStep2.mp4',
-    '/src/assets/videoStep3.mp4',
-    '/src/assets/videoStep4.mp4',
-    '/src/assets/videoStep5.mp4',
-    '/src/assets/videoStep6.mp4',
-    '/src/assets/videoStep7.mp4',
-    '/src/assets/videoStep8.mp4',
-    '/src/assets/videoStep9.mp4',
-    '/src/assets/videoStep10.mp4',
+    '../../public/videoStep0.mp4',
+    '../../public/videoStep1.mp4',
+    '../../public/videoStep2.mp4',
+    '../../public/videoStep3.mp4',
+    '../../public/videoStep4.mp4',
+    '../../public/videoStep5.mp4',
+    '../../public/videoStep6.mp4',
+    '../../public/videoStep7.mp4',
+    '../../public/videoStep8.mp4',
+    '../../public/videoStep9.mp4',
+    '../../public/videoStep10.mp4',
   ];
 
   //array de las imagenes que se muestran usando el componente SliderComponent
   const sliderImages = [
-    '/src/assets/image1.jpg',
-    '/src/assets/image2.jpg',
-    '/src/assets/image3.jpg',
-    '/src/assets/image4.jpg',
+    '../../public/image1.jpg',
+    '../../public/image2.jpg',
+    '../../public/image3.jpg',
+    '../../public/image4.jpg',
   ];
 
   // variables para contador de steps

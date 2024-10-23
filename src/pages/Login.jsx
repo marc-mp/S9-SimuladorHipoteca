@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/aut
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext.jsx';
-import loginVideo from '../assets/loginVideo.mp4'
+import loginVideo from '../../public/loginVideo.mp4'
 
 const Login = () => {
   const [email, setEmail] = useState('');

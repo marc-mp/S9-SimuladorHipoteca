@@ -4,7 +4,7 @@ import { auth } from "../Services/firebaseConfig";
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import registerVideo from '../assets/registerVideo.mp4'
+import registerVideo from '../../public/registerVideo.mp4'
 
 // import { useContext } from 'react';
 // import { AuthContext } from '../context/AuthContext.jsx';
