@@ -44,7 +44,7 @@ const Register = () => {
                 muted
                 playsInline
             />
-            <div className='absolute bottom-80 mb-8 px-10 w-full'>
+            <div className='absolute bottom-72 px-10 w-full'>
                 <div className='flex justify-end'>
                     <Link to={"/"}>
                         <button className='p-2 text-sm text-blue-500 font-semibold'>OK</button>
@@ -106,7 +106,7 @@ const Register = () => {
                     Registrarse
                 </button>
                 <div className="mt-4 text-sm sm:text-base">
-                    <p className="text-black">
+                    <p className="text-black font-semibold">
                         ¿Tienes una cuenta? 
                         <Link to="/LogIn" className="text-blue-500 font-bold ml-2">Entrar</Link>
                     </p>

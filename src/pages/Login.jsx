@@ -58,7 +58,7 @@ const Login = () => {
         muted
         playsInline
       />
-      <div className="absolute bottom-96 mb-3 mx-10 ">
+      <div className="absolute bottom-80 mb-3 mx-10 ">
         <div className="flex justify-end">
           <Link to={"/"}>
             <button className="p-1 text-sm text-blue-500 font-semibold ">OK</button>
@@ -109,9 +109,9 @@ const Login = () => {
           Iniciar sesión
         </button>
         <div className="mt-2 text-sm sm:text-base">
-          <p className="text-gray-950">
+          <p className="text-black font-semibold">
             ¿Olvidaste tu contraseña?
-            <button onClick={handlePasswordReset} className="text-blue-500 ml-2">
+            <button onClick={handlePasswordReset} className="text-blue-500 font-semibold ml-2">
               Recuperar contraseña
             </button>
           </p>
@@ -119,9 +119,9 @@ const Login = () => {
         </div>
 
         <div className="mt-4 text-sm sm:text-base">
-          <p className="text-gray-950">
+          <p className="text-black font-semibold">
             ¿No tienes una cuenta?
-            <Link to="/Register" className="text-blue-500 ml-2">Regístrate aquí</Link>
+            <Link to="/Register" className="text-blue-500 ml-2 font-bold">Regístrate aquí</Link>
           </p>
         </div>
       </div>

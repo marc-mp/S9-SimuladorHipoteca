@@ -32,8 +32,8 @@ const Header = () => {
   // };
 
   return (
-    <header className="container border-none">
-      <nav className="flex justify-end  border-none ">
+    <header className="container">
+      <nav className="flex justify-end">
         <div className="flex space-x-4">
           <div className='flex justify-end mt-4 items-center'>
             {usuario ? (

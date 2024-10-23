@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 const Home = () => (
   <div className="relative text-center mx-auto">
-    <nav className=" border-2">
+    <nav className="">
       <Header/>
     </nav>
     <video
@@ -20,7 +20,7 @@ const Home = () => (
     />
     <section id="hero">
       <div className="absolute top-96 mt-48 container mx-auto text-center ">
-        <h1 className='absolute text-black text-4xl ms-5 font-semibold bottom-96 mb-60'>HipoTech</h1>
+        <h1 className='absolute text-black text-4xl ms-5 font-semibold bottom-96 mb-64'>HipoTech</h1>
         <h1 className="bottom-0 text-6xl text-white font-bold">Simula tu hipoteca</h1>
       </div>
       <div>
