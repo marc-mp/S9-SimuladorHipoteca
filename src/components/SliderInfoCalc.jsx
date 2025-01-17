@@ -18,7 +18,7 @@ const SliderInfoCalc = () => {
   }, []);
 
   return (
-    <div className="slider-container overflow-hidden relative">
+    <div className="slider-container overflow-hidden relative max-w-md mx-auto">
       <div
         className="slider-wrapper flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

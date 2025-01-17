@@ -37,7 +37,6 @@ const InteractiveForm = () => {
     console.log(formData);
   };
   
-
   
   const onSubmit = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -94,32 +93,35 @@ const InteractiveForm = () => {
   
 
   return (
-    <div className="relative">
-      {/* <h1 className=' text-2xl text-blue-500 font-bold'></h1> */}
+    <div className="relative max-w-md h-screen mx-auto">
       <video
-        className=""
+        className="absolute max-w-md"
         src={videos[step]} 
         autoPlay
         loop
         muted
         playsInline
       />
-      <div className="absolute bottom-24">
-        <form onSubmit={handleSubmit(onSubmit)} className='w-screen h-44'>
+      <div className="relative max-w-md">
+        <form onSubmit={handleSubmit(onSubmit)} className=' h-screen'>
           {step === 0 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Cual es el precio de la vivienda?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el precio de la vivienda?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
                   className=" w-full p-2 mb-4 text-center text-5xl text-white font-bold border-transparent placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -149,18 +151,22 @@ const InteractiveForm = () => {
           )}
           {step === 1 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold">¿Cual es el valor de tasacion?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el valor de tasacion?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -194,22 +200,26 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 2 && (
-            <div className='absolute -bottom-5'>
-              <div className="absolute bottom-96 mb-48">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+            <div>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-64'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Años de duración de la hipoteca?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-20 ms-4 text-white font-bold">Años de duración de la hipoteca?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
-                  className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
+                  className=" p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                   placeholder="Introduce los años"
                   {...register('duracion', { required: true })}
                   value={formData.duracion}
@@ -223,7 +233,7 @@ const InteractiveForm = () => {
                   max="35"
                   value={formData.duracion}
                   onChange={(e) => handleRangeChange('duracion', e.target.value)}
-                  className="w-96 mb-5"
+                  className="max-w-md w-96 mb-5"
                 />
               </div>
               <div className='flex justify-between'>
@@ -240,18 +250,22 @@ const InteractiveForm = () => {
           )}
           {step === 3 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Cual es el tipo de interes anual?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold ">Cual es el tipo de interes anual?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -286,18 +300,22 @@ const InteractiveForm = () => {
           )}
           {step === 4 && (
               <div>
-                <div className="absolute bottom-96 mb-32">
+              <div className='flex justify-between'>
+                <div className="">
                     <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
                       <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
                       </svg>
                     </button>
                 </div>
-                <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
                 </div>
-                <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Para qué tipo de vivienda necesitas la hipoteca?</label>
-                <div className="text-center">
+              </div>
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Para que tipo de vivienda es la hipoteca?</label>
+              </div>
+              <div className='max-w-md text-center mt-52'>
                   <div className='p-2 mb-8 '>
                     <label className="text-3xl font-bold text-white">
                         {formData.tipoCompra === ""
@@ -347,18 +365,22 @@ const InteractiveForm = () => {
           )}
           {step === 5 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Cuantos ahorros vas a aportar?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-5 ms-4 text-white font-bold">Cuántos ahorros vas a aportar?</label>
-              <div className="text-center">
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -392,18 +414,22 @@ const InteractiveForm = () => {
           )}
           {step === 6 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Cuantos titulares tendra la hipoteca?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold">Cuántos titulares tendrá la hipoteca?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-white text-5xl font-bold placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -436,30 +462,34 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 7 && (
-            <div className={formData.solicitantes == 2 ? 'absolute -bottom-11 mt-10' : ''}>
-              <div className={formData.solicitantes == 2 ? "absolute bottom-96 mb-44" : "absolute bottom-96 mb-32"} onClick={handleGoHome} >
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold ">
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+            <div >
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className={formData.solicitantes == 2 ? 'absolute w-24 right-5 bottom-96 mb-60' : 'absolute w-24 right-5 bottom-96 mb-48'}>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Indica las edades de los titulares?</label>
               </div>
-              <label className={formData.solicitantes == 2 ? 'absolute bottom-96 text-3xl text-start mb-16 ms-4 text-white font-bold' : 'absolute bottom-96 text-3xl text-start mb-6 ms-4 text-white font-bold' }>Indica las edades de los solicitantes:</label>
-               <div className='text-center'>
+              <div className={formData.solicitantes == 2 ? 'max-w-md text-center mt-32' : 'max-w-md text-center mt-60' } >
                 {Array.from({ length: formData.solicitantes }).map((_, index) => (
-                  <div key={index} className="mb-4">
+                  <div key={index} >
                     <input
                       type="number"
-                      className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
+                      className="w-full p-2 mb-4 text-center text-3xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                       placeholder={`Introduce la edad del solicitante ${index + 1}`}
                       {...register(`edadesSolicitantes.${index}`, { required: true })}
                       value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
                       onChange={(e) => {
                         const newEdades = [...formData.edadesSolicitantes];
-                        newEdades[index] = e.target.value; // Asignar el nuevo valor
+                        newEdades[index] = parseInt(e.target.value, 10); // Asignar el nuevo valor
                         setFormData({ ...formData, edadesSolicitantes: newEdades }); // Actualizar el estado
                       }}
                       min={18}
@@ -481,7 +511,7 @@ const InteractiveForm = () => {
                   </div>
                 ))}
               </div>
-              <div className='flex justify-between bg-black'>
+              <div className='flex justify-between mt-3'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-2 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -494,19 +524,23 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 8 && (
-            <div >
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+            <div>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className=' w-24  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-24 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿ Eres familia numerosa ?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-14 ms-4 text-white font-bold">Eres familia numerosa?</label>
-              <div className="text-center w-screen">
+              <div className='max-w-md text-center mt-60'>
                 <div className='p-2 mb-4'>
                   <label className="text-5xl font-bold text-white">
                       {formData.familiaNumerosa === ""
@@ -543,19 +577,23 @@ const InteractiveForm = () => {
             </div>
           )}
           {step === 9 && (
-            <div className='absolute -bottom-6'>
-              <div className="absolute bottom-96 mb-48">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+            <div>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className='w-28  p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-28 right-5 bottom-96 mb-64'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Cuantos ingresos netos tienes al mes?</label>
               </div>
-              <label className="absolute bottom-96 text-3xl text-start mb-24 ms-4 text-white font-bold">Cuantos ingresos netos tienes al mes?</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-48'>
                 <input
                   type="number"
                   className="w-full p-2 mb-4 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -590,18 +628,22 @@ const InteractiveForm = () => {
 
           {step === 10 && (
             <div>
-              <div className="absolute bottom-96 mb-32">
-                  <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
-                    <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
-                    </svg>
-                  </button>
+              <div className='flex justify-between'>
+                <div className="">
+                    <button className="p-2 ms-2 text-white  text-2xl font-bold " onClick={handleGoHome} >
+                      <svg className="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path  d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"/>
+                      </svg>
+                    </button>
+                </div>
+                <div className='w-28 p-2 me-2'>
+                  <StepForm />
+                </div>
               </div>
-              <div className='absolute w-28 right-5 bottom-96 mb-48'>
-                <StepForm />
+              <div className='mx-4 mt-4'>
+                <label className="text-3xl text-start mt-16 text-white font-bold ">¿Tienes otros creditos? indica la cuota?</label>
               </div>
-              <label className="absolute bottom-96 p-2 text-3xl text-start mb-3 ms-4 text-white font-bold">Tienes otros créditos? indica la cuota.</label>
-              <div className='text-center'>
+              <div className='max-w-md text-center mt-52'>
               <input
                 type="number"
                 className="w-full p-2 text-center text-5xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
@@ -624,7 +666,7 @@ const InteractiveForm = () => {
               {/* {formData.cuotasCreditos < "1" && (
                 <span>No</span>
               )} */}
-              <div className='flex justify-between '>
+              <div className='flex justify-between'>
                 <button type="button" className="bg-transparent border-4 border-white text-white my-6 mx-4 px-4 py-4 rounded" onClick={handlePrevStep}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />

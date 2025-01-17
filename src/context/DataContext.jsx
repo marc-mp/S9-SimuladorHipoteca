@@ -21,19 +21,6 @@ const DataContextProvider = ({ children }) => {
 
   
   // array con lista de videos que se muestran en el formulario
-  // const videos = [
-  //   '../../public/videoStep0.mp4',
-  //   '../../public/videoStep1.mp4',
-  //   '../../public/videoStep2.mp4',
-  //   '../../public/videoStep3.mp4',
-  //   '../../public/videoStep4.mp4',
-  //   '../../public/videoStep5.mp4',
-  //   '../../public/videoStep6.mp4',
-  //   '../../public/videoStep7.mp4',
-  //   '../../public/videoStep8.mp4',
-  //   '../../public/videoStep9.mp4',
-  //   '../../public/videoStep10.mp4',
-  // ];
   const videos = [
     '/videoStep0.mp4',
     '/videoStep1.mp4',
@@ -49,13 +36,6 @@ const DataContextProvider = ({ children }) => {
 ];
 
   //array de las imagenes que se muestran usando el componente SliderComponent
-  // const sliderImages = [
-  //   '../../public/image1.jpg',
-  //   '../../public/image2.jpg',
-  //   '../../public/image3.jpg',
-  //   '../../public/image4.jpg',
-  // ];
-
   const sliderImages = [
     '/image1.jpg',
     '/image2.jpg',

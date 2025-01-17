@@ -1,0 +1,25 @@
+.mobile-mockup {
+    width: 375px;
+    height: 667px;
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    position: relative;
+    
+  }
+
+  .touch-pan-y {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  

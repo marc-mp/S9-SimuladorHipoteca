@@ -14,7 +14,7 @@ const InfoHipoteca = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-md mt-6">
+    <div className="max-w-md mx-auto bg-white rounded-lg shadow-md mt-6">
       <div className="inline-flex">
         <Link to={"/"}>
           <button className=" justify-start px-4 py-1 ms-4 mb-2 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>

@@ -22,7 +22,7 @@ const SliderComponent = () => {
   }, []);
 
   return (
-    <div className="h-96 w-screen slider-container overflow-hidden relative ">
+    <div className="max-h-svh max-w-md slider-container overflow-hidden relative ">
       <div
         className="slider-wrapper flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

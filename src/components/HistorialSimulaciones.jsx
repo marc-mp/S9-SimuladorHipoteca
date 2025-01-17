@@ -6,9 +6,14 @@ import { Link } from 'react-router-dom';
 const HistorialSimulaciones = () => {
     const { reportesGuardados } = useContext(DataContext);
 
+    const fecha = new Date();
+    // fecha en formato local (ejemplo: día/mes/año)
+    const fechaFormato = fecha.toLocaleDateString();
+  
+
     return (
-        <div className="mx-3 ">
-            <div className="flex justify-end">
+        <div className="max-w-md mx-auto ">
+            <div className="flex justify-end mt-5">
                 <Link to={"/UserDashboard"}>
                     <button className=" justify-start px-4 py-1 ms-4 mb-4 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
                 </Link>
@@ -21,6 +26,9 @@ const HistorialSimulaciones = () => {
                     <ul>
                         {reportesGuardados.map((reporte, index) => (
                             <li key={index} className="mb-2 border-2 space-y-2 border-neutral-200 shadow-lg rounded-xl p-4">
+                                <div className='font-bold mb-2 text-lg'>
+                                    {fechaFormato}
+                                </div>
                                 <div>
                                     <strong>Precio de la vivienda:</strong> {reporte.precioVivienda.toFixed(2)} €
                                 </div>
@@ -65,13 +73,13 @@ const HistorialSimulaciones = () => {
                                     {reporte.ratioEndeudamiento > 36 && reporte.ratioEndeudamiento < 41 && (
                                     <div  className='inline-flex space-x-3 items-center'>
                                         <div className='rounded-full w-4 h-4 bg-orange-500'></div>
-                                        <p className='text-orange-500 font-bold text-xl'>HIPOTECA ACEPTADA</p>
+                                        <p className='text-orange-500 font-bold text-xl'>LA HIPOTECA ES VIABLE</p>
                                     </div>
                                     )}
                                     {reporte.ratioEndeudamiento > 40 && (
                                     <div  className='inline-flex space-x-3 items-center'>
                                         <div className='rounded-full w-4 h-4 bg-red-600'></div>
-                                        <p className='text-red-600 font-bold text-xl'>HIPOTECA RECHAZADA</p>
+                                        <p className='text-red-600 font-bold text-xl'>LA HIPOTECA NO ES VIABLE</p>
                                     </div>
                                     )}
                                 </div>

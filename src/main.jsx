@@ -18,6 +18,8 @@ import UserDashboard from './components/UserDashboard.jsx';
 import InfoHipoteca from './pages/InfoHipoteca.jsx'
 import HistorialSimulaciones from './components/HistorialSimulaciones.jsx';
 import PrivateRoute from './components/PrivateRoute';
+//import { isDesktop } from 'react-device-detect';
+import MobileMockup from './MobileMockup';
 
 
 
@@ -71,12 +73,18 @@ export const router = createBrowserRouter ([
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
-
+      <MobileMockup>
+    <div  >
     <AuthContextProvider>
-      <DataContextProvider>
-        <RouterProvider router={router} />
-      </DataContextProvider>  
-    </AuthContextProvider>
+        <DataContextProvider>
+          <RouterProvider router={router} />
+        </DataContextProvider>  
+      </AuthContextProvider>
+    </div>
 
+
+
+      </MobileMockup>
+      
   </StrictMode>,
 )

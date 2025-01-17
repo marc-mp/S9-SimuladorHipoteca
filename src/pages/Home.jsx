@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 
 const Home = () => (
-  <div className="relative text-center mx-auto">
+  <div className="relative text-center mx-auto max-h-svh max-w-md ">
     <nav className="">
       <Header/>
     </nav>

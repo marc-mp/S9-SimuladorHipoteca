@@ -68,8 +68,9 @@ const Report = () => {
         return <div>Error en los datos, volver a intentarlo</div>;
     }
 
+
     return (
-        <div className="p-6 rounded-lg shadow-lg">
+        <div className="max-w-md mx-auto p-6 rounded-lg shadow-lg">
           <div >
             <h2 className="text-2xl font-bold mb-6">Resumen de la Hipoteca</h2>
           </div>
@@ -90,9 +91,6 @@ const Report = () => {
             <strong>Tasa de interés anual:</strong> {interes} %
           </div>
           <div className="mb-2">
-            <strong>Total intereses de la hipoteca:</strong> {totalInterest.toFixed(2)} €
-          </div>
-          <div className="mb-2">
             <strong>Préstamo Hipoteca solicitada:</strong> {prestamoHipoteca.toFixed(2)} €
           </div>
           <div className="mb-2">
@@ -105,6 +103,9 @@ const Report = () => {
             <strong>Ratio endeudamiento (max 40%): </strong> 
             <p className={` font-bold ${ratioEndeudamiento < 36 ? 'text-green-700' : ratioEndeudamiento < 41 ? 'text-orange-500' : 'text-red-600'} `}>  {ratioEndeudamiento.toFixed(0)}%</p>
           </div>
+          <div className="mb-2">
+            <strong>Total intereses de la hipoteca:</strong> {totalInterest.toFixed(2)} €
+          </div>
           <div className="mb-4">
             <strong>Coste total al finalizar hipoteca:</strong> {totalCost.toFixed(2)} €
           </div>
@@ -112,30 +113,29 @@ const Report = () => {
             {ratioEndeudamiento < 36 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-green-500'></div>
-                <p className='text-green-600 font-bold text-xl'>HIPOTECA ACEPTADA</p>
+                <p className='text-green-600 font-bold text-xl'> LA HIPOTECA ES VIABLE</p>
               </div>
             )}
-              {ratioEndeudamiento > 36 && ratioEndeudamiento < 41 && (
+              {ratioEndeudamiento > 35 && ratioEndeudamiento < 41 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-orange-500'></div>
-                <p className='text-orange-500 font-bold text-xl'>HIPOTECA ACEPTADA</p>
+                <p className='text-orange-500 font-bold text-xl'>LA HIPOTECA ES VIABLE</p>
               </div>
             )}
             {ratioEndeudamiento > 40 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-red-600'></div>
-                <p className='text-red-600 font-bold text-xl'>HIPOTECA RECHAZADA</p>
+                <p className='text-red-600 font-bold text-xl'>LA HIPOTECA NO ES VIABLE</p>
               </div>
             )}
           </div>
           <ReportChart />
-          <div className="space-y-4 md:w-56">
+          <div className="space-y-3 max-w-md mx-auto">
               <div>
                 <button 
                   onClick={handleGuardarReporte} 
-                  className={`space-x-4 py-2 text-center px-4 rounded w-full ${
-                    isGuardado ? 'bg-pink-500' : 'bg-blue-600'
-                  } text-white`}
+                  className={`space-x-4 text-center px-4 rounded w-full font-bold py-3  mb-2  hover:bg-yellow-400 text-black text-xl ${
+                    isGuardado ? 'bg-yellow-400' : 'bg-white border-2 border-yellow-400'} `}
                   disabled={isGuardado} // Deshabilita el botón una vez ha guardado el reporte
                 >
                     {isGuardado ? 'Hipoteca Guardada' : 'Guardar hipoteca'}
@@ -144,7 +144,7 @@ const Report = () => {
               <div>
                   <button 
                     onClick={handleGoHome} 
-                    className="space-x-4 bg-blue-600 text-white py-2 text-center px-4 rounded w-full hover:bg-blue-900">
+                    className="space-x-4 text-white text-xl font-bold py-3 text-center px-4 rounded w-full bg-black border-2 border-black">
                       Volver a empezar
                   </button>
               </div>

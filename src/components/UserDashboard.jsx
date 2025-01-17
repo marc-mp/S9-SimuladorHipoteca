@@ -19,7 +19,7 @@ const UserDashboard = () => {
     
     
     return (
-        <div className="relative">
+        <div className="relative max-w-md mx-auto">
              <video
                 className=""
                 src={dashboardVideo} 

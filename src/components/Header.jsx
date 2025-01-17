@@ -32,7 +32,7 @@ const Header = () => {
   // };
 
   return (
-    <header className="container">
+    <header className="container max-w-md bg-white">
       <nav className="flex justify-end">
         <div className="flex space-x-4">
           <div className='flex justify-end mt-4 items-center'>
