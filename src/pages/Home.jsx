@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import llavesLogoCasa from '../../public/llavesLogoCasa.mp4'
 import SliderInfoCalc from '../components/SliderInfoCalc';
 import Footer from '../components/Footer';
 
@@ -11,8 +10,8 @@ const Home = () => (
       <Header/>
     </nav>
     <video
-    className="w-screen max-w-md" 
-    src={llavesLogoCasa}  
+    className="relative max-w-md w-screen " 
+    src="/llavesLogoCasa.mp4" 
     autoPlay
     loop
     muted
