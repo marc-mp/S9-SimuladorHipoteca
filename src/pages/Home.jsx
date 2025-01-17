@@ -11,7 +11,7 @@ const Home = () => (
       <Header/>
     </nav>
     <video
-    className="w-full" 
+    className="w-screen max-w-md" 
     src={llavesLogoCasa}  
     autoPlay
     loop
