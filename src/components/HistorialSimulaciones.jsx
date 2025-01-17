@@ -13,15 +13,15 @@ const HistorialSimulaciones = () => {
 
     return (
         <div className="max-w-md mx-auto ">
-            <div className="flex justify-end mt-5">
+            <div className="flex justify-end mt-5 me-4">
                 <Link to={"/UserDashboard"}>
-                    <button className=" justify-start px-4 py-1 ms-4 mb-4 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
+                    <button className="  px-4 py-1 mb-4 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
                 </Link>
             </div>
             <h2 className="text-2xl text-center font-bold mb-4">Historial de Simulaciones</h2>
             <div>
                 {reportesGuardados.length === 0 ? (
-                    <p>No hay simulaciones guardadas.</p>
+                    <p className='ms-10 text-red-500 '>No hay simulaciones guardadas.</p>
                 ) : (
                     <ul>
                         {reportesGuardados.map((reporte, index) => (

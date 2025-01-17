@@ -6,23 +6,24 @@ import Footer from '../components/Footer';
 
 const Home = () => (
   <div className="relative text-center mx-auto max-h-svh max-w-md ">
-    <nav className="">
+    <nav className="flex justify-between">
+    <h1 className=' text-black text-4xl ms-5 mt-3 font-semibold '>HipoTech</h1>
       <Header/>
     </nav>
-    <video
-    className="relative max-w-md w-screen " 
-    src="/llavesLogoCasa.mp4" 
-    autoPlay
-    loop
-    muted
-    playsInline
-    />
-    <section id="hero">
-      <div className="absolute top-96 mt-48 container mx-auto text-center ">
-        <h1 className='absolute text-black text-4xl ms-5 font-semibold bottom-96 mb-64'>HipoTech</h1>
-        <h1 className="bottom-0 text-6xl text-white font-bold">Simula tu hipoteca</h1>
+  
+    <section id="hero" className='relative'>
+      <video
+      className="max-w-md w-screen" 
+      src="/llavesLogoCasa.mp4" 
+      autoPlay
+      loop
+      muted
+      playsInline
+      />
+      <div className="absolute bottom-96 mb-20 md:mb-16  container mx-auto text-center ">
+        <h1 className=" text-6xl text-white font-bold">Simula tu hipoteca</h1>
       </div>
-      <div>
+      <div> 
       <p className="text-2xl m-5 text-yellow-400 font-bold ">Rápido, fácil y sin compromiso</p>
       </div>
       <div className=''>

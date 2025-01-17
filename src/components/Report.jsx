@@ -110,19 +110,19 @@ const Report = () => {
             <strong>Coste total al finalizar hipoteca:</strong> {totalCost.toFixed(2)} €
           </div>
           <div className='flex justify-center'>
-            {ratioEndeudamiento < 36 && (
+            {ratioEndeudamiento <= 36.00 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-green-500'></div>
                 <p className='text-green-600 font-bold text-xl'> LA HIPOTECA ES VIABLE</p>
               </div>
             )}
-              {ratioEndeudamiento > 35 && ratioEndeudamiento < 41 && (
+              {ratioEndeudamiento >= 36.01 && ratioEndeudamiento < 41 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-orange-500'></div>
-                <p className='text-orange-500 font-bold text-xl'>LA HIPOTECA ES VIABLE</p>
+                <p className='text-orange-500 font-bold text-xl'>LA HIPOTECA PODRIA SER VIABLE</p>
               </div>
             )}
-            {ratioEndeudamiento > 40 && (
+            {ratioEndeudamiento >= 41.00 && (
               <div  className='inline-flex space-x-3 items-center'>
                 <div className='rounded-full w-4 h-4 bg-red-600'></div>
                 <p className='text-red-600 font-bold text-xl'>LA HIPOTECA NO ES VIABLE</p>
