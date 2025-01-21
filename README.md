@@ -2,7 +2,7 @@
 
 ## Description
 
-**Mortgage Simulator** is a application developed with **React, Vite, CSS, Tailwind, and Firebase** that allows users to easily and interactively simulate mortgages. By entering the necessary housing and personal data, users can determine the viability of a mortgage and receive a detailed report with loan conditions.
+**Mortgage Simulator** is a mobile-focused application for a better user experience and developed with **React, Vite, CSS, Tailwind, and Firebase** that allows users to easily and interactively simulate mortgages. By entering the necessary housing and personal data, users can determine the viability of a mortgage and receive a detailed report with loan conditions.
 
 ## Features
 
