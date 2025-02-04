@@ -15,11 +15,11 @@ const InfoHipoteca = () => {
 
   return (
     <div className="max-w-md mx-auto bg-white rounded-lg shadow-md mt-6">
-      <div className="inline-flex">
+      <div className="flex justify-between">
         <Link to={"/"}>
-          <button className=" justify-start px-4 py-1 ms-4 mb-2 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
+          <button className="px-4 py-1 ms-4 mb-2 bg-yellow-300 rounded-xl text-md font-semibold ">Volver</button>
         </Link>
-        <h1 className='ms-44 text-xl font-semibold'>Hipotech</h1>
+        <h1 className='text-xl me-4 font-semibold'>Hipotech</h1>
       </div>
       <div className=''>
         <h2 className="text-3xl font-bold text-black p-4">Cómo funciona una hipoteca? </h2>

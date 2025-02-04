@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -24,12 +23,6 @@ const Header = () => {
     navigate('/UserDashboard');
   };
 
-  // const logOut = () => {
-  //   auth.signOut().then(() => {
-  //     setUsuario(null);
-  //     navigate('/');
-  //   });
-  // };
 
   return (
     <header className="container max-w-md bg-white">
@@ -47,7 +40,7 @@ const Header = () => {
                 </button>
               </div>
             ) : (
-              <div className='me-4 '>
+              <div className='me-4'>
                 <button className="font-semibold mb-7 inline-flex">
                   <Link to="/Login">Iniciar sesión</Link>
                 </button>

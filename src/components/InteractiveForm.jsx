@@ -79,11 +79,11 @@ const InteractiveForm = () => {
       case 6:
         return formData.solicitantes > 0
       case 7:
-        return formData.edadesSolicitantes.every(age => age >= 18);
+        return formData.edadesSolicitantes.every(edad => edad >= 18);
       case 8:
         return formData.familiaNumerosa !== ''
       case 9 :
-        return formData.ingresosNetos >= 0
+        return formData.ingresosNetos > 0
       case 10:
         return formData.cuotasCreditos >= 0
       default:
@@ -486,7 +486,7 @@ const InteractiveForm = () => {
                       className="w-full p-2 mb-4 text-center text-3xl text-white font-bold placeholder-transparent focus:placeholder-transparent bg-transparent focus:outline-none focus:ring-0 focus:border-transparent"
                       placeholder={`Introduce la edad del solicitante ${index + 1}`}
                       {...register(`edadesSolicitantes.${index}`, { required: true })}
-                      value={formData.edadesSolicitantes[index] || 18} // Valor por defecto de 18 si no hay edad establecida
+                      value={formData.edadesSolicitantes[index] || 0} // Valor por defecto de 18 si no hay edad establecida
                       onChange={(e) => {
                         const newEdades = [...formData.edadesSolicitantes];
                         newEdades[index] = parseInt(e.target.value, 10); // Asignar el nuevo valor

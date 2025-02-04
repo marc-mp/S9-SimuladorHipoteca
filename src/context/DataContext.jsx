@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, } from 'react'; //useEffect firebase
 
 export const DataContext = createContext();
 
@@ -33,6 +33,7 @@ const DataContextProvider = ({ children }) => {
     '/videoStep8.mp4',
     '/videoStep9.mp4',
     '/videoStep10.mp4',
+    
 ];
 
   //array de las imagenes que se muestran usando el componente SliderComponent
@@ -50,9 +51,19 @@ const DataContextProvider = ({ children }) => {
   
   // Validación: Asegurar que todos los campos requeridos estén presentes y son números válidos
   const precioVivienda = parseFloat(formData?.precioVivienda) || 0;
+  const valorTasacion = parseFloat(formData?.valorTasacion) || 0;
   const ahorros = parseFloat(formData?.ahorros) || 0;
   const interes = parseFloat(formData?.interes) || 0;
+  const tipoCompra = formData?.tipoCompra || "";
   const duracion = parseInt(formData?.duracion) || 0;
+  const solicitantes = parseInt(formData?.solicitantes) || 0;
+  const edadesSolicitantes = parseInt(formData?.edadesSolicitantes) || 0;
+  const familiaNumerosa = formData?.familiaNumerosa || "";
+  const ingresosNetos = parseInt(formData?.ingresosNetos) || 0;
+  const cuotasCreditos = parseInt(formData?.cuotasCreditos) || 0;
+
+
+
 
   // Cálculo del préstamo total solicitado
   const prestamoHipoteca = precioVivienda - ahorros;
@@ -201,10 +212,17 @@ const DataContextProvider = ({ children }) => {
                                   taxRate,
                                   taxes,
                                   totalCost,
-                                  precioVivienda, 
+                                  precioVivienda,
+                                  valorTasacion,
                                   ahorros,
                                   interes,
+                                  tipoCompra,
                                   duracion,
+                                  solicitantes,
+                                  edadesSolicitantes,
+                                  familiaNumerosa,
+                                  ingresosNetos,
+                                  cuotasCreditos,
                                   videos,
                                   sliderImages,
                                   reportesGuardados, setReportesGuardados,

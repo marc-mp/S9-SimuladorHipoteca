@@ -2,19 +2,20 @@ import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import SliderInfoCalc from '../components/SliderInfoCalc';
 import Footer from '../components/Footer';
+import llavesLogoCasa from '../../public/llavesLogoCasa.mp4'
 
 
 const Home = () => (
-  <div className="relative text-center mx-auto max-h-svh max-w-md ">
+  <div className="relative text-center mx-auto max-w-md  ">
     <nav className="flex justify-between">
     <h1 className=' text-black text-4xl ms-5 mt-3 font-semibold '>HipoTech</h1>
       <Header/>
     </nav>
-  
     <section id="hero" className='relative'>
       <video
       className="max-w-md w-screen" 
-      src="/llavesLogoCasa.mp4" 
+      src={llavesLogoCasa}
+      
       autoPlay
       loop
       muted
